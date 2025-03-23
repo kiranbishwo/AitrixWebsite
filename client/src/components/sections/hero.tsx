@@ -10,7 +10,7 @@ const Hero = () => {
       
       <div className="container mx-auto px-4">
         <div className="mb-4 flex justify-center">
-          <Badge variant="outline" className="px-4 py-1 text-sm font-medium rounded-full bg-primary bg-opacity-10 text-primary">
+          <Badge variant="outline" className="px-4 py-1 text-sm font-medium rounded-full bg-primary bg-opacity-10 text-white">
             Transforming Educational Experiences with Advanced AI Technology
           </Badge>
         </div>

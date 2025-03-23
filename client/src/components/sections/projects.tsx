@@ -13,12 +13,12 @@ interface ProjectCardProps {
   icon: React.ElementType;
   title: string;
   features: string[];
-  bgColor: string;
+  textColor: string;
 }
 
-const ProjectCard = ({ icon: Icon, title, features, bgColor }: ProjectCardProps) => (
+const ProjectCard = ({ icon: Icon, title, features, textColor }: ProjectCardProps) => (
   <div className="bg-white rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 reveal">
-    <div className={`h-48 ${bgColor} flex items-center justify-center relative`}>
+    <div className={`h-48  flex items-center justify-center relative`}>
       <div className="absolute inset-0 opacity-20">
         {/* Neural network background pattern */}
         <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -38,7 +38,7 @@ const ProjectCard = ({ icon: Icon, title, features, bgColor }: ProjectCardProps)
           <circle cx="80" cy="70" r="1.5" fill="white" />
         </svg>
       </div>
-      <Icon className="h-20 w-20 text-white" strokeWidth={1.5} />
+      <Icon className={`h-20 w-20  ${textColor}`} strokeWidth={1.5} />
     </div>
     <div className="p-6">
       <h3 className="text-xl font-bold mb-4">{title}</h3>
@@ -61,7 +61,7 @@ const Projects = () => {
     {
       icon: Brain,
       title: "Adaptive Learning Engine",
-      bgColor: "bg-blue-600",
+      textColor: "text-blue-600",
       features: [
         "Real-time learning pattern analysis",
         "Dynamic difficulty adjustment",
@@ -73,7 +73,7 @@ const Projects = () => {
     {
       icon: BookOpen,
       title: "Personalized Curriculum",
-      bgColor: "bg-indigo-600",
+      textColor: "text-indigo-600",
       features: [
         "AI content generation",
         "Learning style detection",
@@ -85,7 +85,7 @@ const Projects = () => {
     {
       icon: MessageSquareText,
       title: "AI Tutoring Companion",
-      bgColor: "bg-purple-600",
+      textColor: "text-purple-600",
       features: [
         "24/7 instant feedback",
         "Natural language explanations",
@@ -97,7 +97,7 @@ const Projects = () => {
     {
       icon: LineChart,
       title: "Learning Analytics Dashboard",
-      bgColor: "bg-cyan-600",
+      textColor: "text-cyan-600",
       features: [
         "Real-time performance tracking",
         "Engagement pattern analysis",
@@ -109,7 +109,7 @@ const Projects = () => {
     {
       icon: Edit,
       title: "Automated Assessment",
-      bgColor: "bg-teal-600",
+      textColor: "text-teal-600",
       features: [
         "Essay grading neural networks",
         "Plagiarism detection",
@@ -121,7 +121,7 @@ const Projects = () => {
     {
       icon: GraduationCap,
       title: "Skill-Gap Predictor",
-      bgColor: "bg-sky-600",
+      textColor: "text-sky-600",
       features: [
         "Predictive learning analytics",
         "Future challenge identification",
@@ -153,7 +153,7 @@ const Projects = () => {
               icon={project.icon}
               title={project.title}
               features={project.features}
-              bgColor={project.bgColor}
+              textColor={project.textColor}
             />
           ))}
         </div>
