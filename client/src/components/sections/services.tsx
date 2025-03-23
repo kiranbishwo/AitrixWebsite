@@ -40,7 +40,10 @@ const Services = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">AI-Education <span className="text-primary">Services</span></h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Our comprehensive AI-driven educational services help institutions transform traditional learning into personalized, data-driven experiences that maximize student outcomes.
+            Our suite of AI-powered educational solutions leverages machine learning algorithms, natural language processing, and neural networks to transform traditional learning environments into intelligent, adaptive systems.
+          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+            By applying cutting-edge artificial intelligence to the science of learning, we're creating educational experiences that continuously evolve to meet each student's unique needs, abilities, and learning style.
           </p>
         </div>
         
@@ -109,23 +112,33 @@ const Services = () => {
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div>
                       <ul className="space-y-2 text-sm">
-                        <li>• One-size-fits-all content</li>
-                        <li>• Static learning pace</li>
-                        <li>• Periodic assessments</li>
-                        <li>• Limited feedback loops</li>
-                        <li>• Reactive intervention</li>
+                        <li>• Standardized curriculum for all</li>
+                        <li>• Fixed learning sequence</li>
+                        <li>• End-of-unit assessments</li>
+                        <li>• Generic feedback</li>
+                        <li>• Manual student monitoring</li>
                       </ul>
                     </div>
                     <div>
                       <ul className="space-y-2 text-sm">
-                        <li>• Personalized content delivery</li>
-                        <li>• Adaptive learning pace</li>
-                        <li>• Continuous micro-assessments</li>
-                        <li>• Real-time feedback systems</li>
-                        <li>• Predictive intervention</li>
+                        <li>• Neural network-optimized content</li>
+                        <li>• AI-generated learning pathways</li>
+                        <li>• Continuous knowledge modeling</li>
+                        <li>• Natural language feedback</li>
+                        <li>• Machine learning insights</li>
                       </ul>
                     </div>
                   </div>
+                </div>
+                
+                <div className="bg-white bg-opacity-10 p-5 rounded-lg">
+                  <h5 className="font-semibold mb-3">Our AI Educational Technologies</h5>
+                  <ul className="space-y-3 text-sm">
+                    <li><span className="font-semibold">Cognitive Modeling:</span> Neural networks that map knowledge states and learning patterns</li>
+                    <li><span className="font-semibold">NLP Analysis:</span> Real-time comprehension assessment through natural language processing</li>
+                    <li><span className="font-semibold">Reinforcement Learning:</span> Content sequencing algorithms that optimize for knowledge retention</li>
+                    <li><span className="font-semibold">Predictive Analytics:</span> Early intervention system for at-risk students</li>
+                  </ul>
                 </div>
                 
                 <div className="bg-white bg-opacity-10 p-5 rounded-lg">
