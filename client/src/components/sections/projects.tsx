@@ -12,23 +12,46 @@ import {
 interface ProjectCardProps {
   icon: React.ElementType;
   title: string;
-  description: string;
+  features: string[];
+  bgColor: string;
 }
 
-const ProjectCard = ({ icon: Icon, title, description }: ProjectCardProps) => (
+const ProjectCard = ({ icon: Icon, title, features, bgColor }: ProjectCardProps) => (
   <div className="bg-white rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-2 reveal">
-    <div className="h-48 bg-primary bg-opacity-10 flex items-center justify-center">
-      <Icon className="h-20 w-20 text-primary" strokeWidth={1.5} />
+    <div className={`h-48 ${bgColor} flex items-center justify-center relative`}>
+      <div className="absolute inset-0 opacity-20">
+        {/* Neural network background pattern */}
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M10,30 Q25,10 40,30 T70,30 T90,20" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-white" />
+          <path d="M5,50 Q20,70 40,50 T70,50 T95,60" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-white" />
+          <path d="M10,80 Q30,60 50,80 T80,70" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-white" />
+          <circle cx="20" cy="30" r="1.5" fill="white" />
+          <circle cx="40" cy="30" r="1.5" fill="white" />
+          <circle cx="70" cy="30" r="1.5" fill="white" />
+          <circle cx="90" cy="20" r="1.5" fill="white" />
+          <circle cx="5" cy="50" r="1.5" fill="white" />
+          <circle cx="40" cy="50" r="1.5" fill="white" />
+          <circle cx="70" cy="50" r="1.5" fill="white" />
+          <circle cx="95" cy="60" r="1.5" fill="white" />
+          <circle cx="10" cy="80" r="1.5" fill="white" />
+          <circle cx="50" cy="80" r="1.5" fill="white" />
+          <circle cx="80" cy="70" r="1.5" fill="white" />
+        </svg>
+      </div>
+      <Icon className="h-20 w-20 text-white" strokeWidth={1.5} />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-600 mb-4">
-        {description}
-      </p>
-      <div className="flex items-center space-x-2 text-primary">
-        <span className="text-sm font-medium">Learn more</span>
-        <ChevronRight className="h-4 w-4" />
-      </div>
+      <h3 className="text-xl font-bold mb-4">{title}</h3>
+      <ul className="space-y-2">
+        {features.map((feature, index) => (
+          <li key={index} className="flex items-start">
+            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary bg-opacity-20 flex items-center justify-center mr-2 mt-0.5">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+            </div>
+            <span className="text-gray-600 text-sm">{feature}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 );
@@ -38,32 +61,74 @@ const Projects = () => {
     {
       icon: Brain,
       title: "Adaptive Learning Engine",
-      description: "AI-powered system that analyzes student performance in real-time, adjusting difficulty levels and learning materials to match individual cognitive patterns."
+      bgColor: "bg-blue-600",
+      features: [
+        "Real-time learning pattern analysis",
+        "Dynamic difficulty adjustment",
+        "Cognitive load optimization",
+        "Memory retention algorithms",
+        "Student engagement monitoring"
+      ]
     },
     {
       icon: BookOpen,
       title: "Personalized Curriculum",
-      description: "Smart content creation that tailors educational materials to students' learning styles, interests, and knowledge gaps identified through continuous assessment."
+      bgColor: "bg-indigo-600",
+      features: [
+        "AI content generation",
+        "Learning style detection",
+        "Interest-based curriculum mapping",
+        "Knowledge gap identification",
+        "Custom learning path creation"
+      ]
     },
     {
       icon: MessageSquareText,
       title: "AI Tutoring Companion",
-      description: "24/7 virtual tutors that provide instant feedback, answer questions, and guide students through complex concepts using natural language processing."
+      bgColor: "bg-purple-600",
+      features: [
+        "24/7 instant feedback",
+        "Natural language explanations",
+        "Socratic questioning method",
+        "Conceptual understanding verification",
+        "Multi-language support"
+      ]
     },
     {
       icon: LineChart,
       title: "Learning Analytics Dashboard",
-      description: "Advanced data visualization tools for educators to track student engagement, identify struggling learners, and optimize teaching strategies."
+      bgColor: "bg-cyan-600",
+      features: [
+        "Real-time performance tracking",
+        "Engagement pattern analysis",
+        "Early intervention alerts",
+        "Teaching strategy optimization",
+        "Data visualization tools"
+      ]
     },
     {
       icon: Edit,
       title: "Automated Assessment",
-      description: "AI-powered evaluation tools that grade written assignments with human-like understanding, providing detailed feedback while reducing teacher workload."
+      bgColor: "bg-teal-600",
+      features: [
+        "Essay grading neural networks",
+        "Plagiarism detection",
+        "Detailed feedback generation",
+        "Rubric-based evaluation",
+        "Multi-format assessment support"
+      ]
     },
     {
       icon: GraduationCap,
       title: "Skill-Gap Predictor",
-      description: "Predictive algorithms that identify future educational challenges and recommend personalized intervention strategies before performance issues arise."
+      bgColor: "bg-sky-600",
+      features: [
+        "Predictive learning analytics",
+        "Future challenge identification",
+        "Personalized intervention planning",
+        "Learning trajectory modeling",
+        "Long-term skill development tracking"
+      ]
     }
   ];
 
@@ -87,7 +152,8 @@ const Projects = () => {
               key={index}
               icon={project.icon}
               title={project.title}
-              description={project.description}
+              features={project.features}
+              bgColor={project.bgColor}
             />
           ))}
         </div>
