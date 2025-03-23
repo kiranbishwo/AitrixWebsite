@@ -60,7 +60,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-background font-sans antialiased text-foreground">
-      <style jsx global>{`
+      <style>{`
         @keyframes float {
           0% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }
