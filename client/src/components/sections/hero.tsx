@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Brain, Zap, Sparkles, BookOpen, ChartBar, Clock } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -7,14 +9,52 @@ const Hero = () => {
       <div className="hero-shape hero-shape-2"></div>
       
       <div className="container mx-auto px-4">
+        <div className="mb-4 flex justify-center">
+          <Badge variant="outline" className="px-4 py-1 text-sm font-medium rounded-full bg-primary bg-opacity-10 text-primary">
+            Transforming Educational Experiences with Advanced AI Technology
+          </Badge>
+        </div>
+        
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 md:pr-12 reveal">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-dark">
               Revolutionizing <span className="text-primary">Education</span> with AI
             </h1>
             <p className="text-lg text-gray-600">
-              Innovative AI-powered solutions for the future of learning. Discover how our technology is transforming educational experiences worldwide.
+              Our AI-driven educational platform adapts to individual learning styles, providing personalized experiences that optimize knowledge retention and accelerate skill development.
             </p>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex items-start space-x-2">
+                <Zap className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold">Personalized Learning</h3>
+                  <p className="text-sm text-gray-600">Tailored to each student's unique needs</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-2">
+                <Brain className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold">Cognitive Analysis</h3>
+                  <p className="text-sm text-gray-600">Understands individual learning patterns</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-2">
+                <BookOpen className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold">Dynamic Content</h3>
+                  <p className="text-sm text-gray-600">Materials that evolve with students</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-2">
+                <ChartBar className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold">Progress Tracking</h3>
+                  <p className="text-sm text-gray-600">Real-time insights and analytics</p>
+                </div>
+              </div>
+            </div>
+            
             <div className="flex space-x-4">
               <Button
                 asChild
@@ -41,17 +81,47 @@ const Hero = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <rect width="600" height="400" rx="12" fill="#f8fafc" />
+              
+              {/* Neural network background */}
               <path d="M110,200 Q160,100 250,150 T350,120 T450,200" stroke="#3b82f6" strokeWidth="6" fill="none" />
-              <circle cx="200" cy="200" r="80" fill="#eff6ff" />
-              <circle cx="400" cy="200" r="100" fill="#dbeafe" />
-              <path d="M200,150 L300,225 L250,325 L150,280 Z" fill="#2563eb" fillOpacity="0.2" />
-              <path d="M300,170 L400,240 L350,320 L250,250 Z" fill="#2563eb" fillOpacity="0.3" />
-              <circle cx="200" cy="230" r="30" fill="#2563eb" fillOpacity="0.5" />
-              <circle cx="350" cy="260" r="20" fill="#2563eb" fillOpacity="0.6" />
-              <path d="M150,120 L180,150 L150,180 L120,150 Z" fill="#2563eb" />
-              <path d="M420,140 L440,160 L420,180 L400,160 Z" fill="#2563eb" />
-              <circle cx="300" cy="100" r="15" fill="#2563eb" />
-              <text x="280" y="320" fontSize="24" fontWeight="bold" fill="#1e293b">AI Learning</text>
+              <path d="M150,220 Q200,280 300,240 T450,260" stroke="#60a5fa" strokeWidth="4" fill="none" strokeDasharray="6 4" />
+              <path d="M100,150 Q180,180 250,140 T400,160 T500,120" stroke="#93c5fd" strokeWidth="3" fill="none" strokeDasharray="2 3" />
+              
+              {/* Brain representation */}
+              <ellipse cx="300" cy="180" rx="120" ry="100" fill="#eff6ff" stroke="#3b82f6" strokeWidth="2" />
+              <path d="M240,140 Q300,100 360,140 T320,220 T280,220 T240,140" fill="#dbeafe" stroke="#3b82f6" strokeWidth="1.5" />
+              <path d="M260,160 Q300,130 340,160 T310,210 T290,210 T260,160" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="1" />
+              
+              {/* Abstract data connections */}
+              <circle cx="200" cy="100" r="15" fill="#2563eb" fillOpacity="0.6" />
+              <circle cx="400" cy="120" r="12" fill="#3b82f6" fillOpacity="0.7" />
+              <circle cx="480" cy="200" r="18" fill="#60a5fa" fillOpacity="0.8" />
+              <circle cx="150" cy="250" r="20" fill="#93c5fd" fillOpacity="0.6" />
+              <circle cx="320" cy="280" r="16" fill="#2563eb" fillOpacity="0.5" />
+              <circle cx="420" cy="260" r="14" fill="#3b82f6" fillOpacity="0.7" />
+              
+              {/* Connection lines */}
+              <line x1="200" y1="100" x2="240" y2="140" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="2 2" />
+              <line x1="400" y1="120" x2="360" y2="140" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="2 2" />
+              <line x1="480" y1="200" x2="400" y2="180" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="2 2" />
+              <line x1="150" y1="250" x2="200" y2="220" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="2 2" />
+              <line x1="320" y1="280" x2="300" y2="240" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="2 2" />
+              <line x1="420" y1="260" x2="380" y2="220" stroke="#2563eb" strokeWidth="1.5" strokeDasharray="2 2" />
+              
+              {/* Student figure */}
+              <circle cx="150" cy="330" r="20" fill="#3b82f6" />
+              <rect x="130" y="350" width="40" height="50" rx="10" fill="#3b82f6" />
+              
+              {/* Book or screen */}
+              <rect x="220" y="320" width="70" height="50" rx="5" fill="#1e40af" />
+              <rect x="230" y="330" width="50" height="30" rx="2" fill="#dbeafe" />
+              
+              {/* AI connection beam */}
+              <path d="M180,330 Q250,280 300,220" stroke="#60a5fa" strokeWidth="3" strokeDasharray="4 2" />
+              
+              {/* Text labels */}
+              <text x="320" y="340" fontSize="18" fontWeight="bold" fill="#1e293b">AI-Powered Education</text>
+              <text x="320" y="360" fontSize="14" fill="#475569">Personalized Learning</text>
             </svg>
             
             <div className="absolute -bottom-6 -right-6 bg-white rounded-lg shadow-lg p-4 animate-float-delayed">
@@ -64,6 +134,16 @@ const Hero = () => {
                 <div>
                   <p className="font-semibold text-sm">Trusted by</p>
                   <p className="text-gray-600 text-xs">500+ Educational Institutions</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="absolute top-4 -left-6 bg-white rounded-lg shadow-lg p-4 animate-float-delayed">
+              <div className="flex items-center space-x-2">
+                <Clock className="h-5 w-5 text-primary" />
+                <div>
+                  <p className="font-semibold text-sm">Learning Efficiency</p>
+                  <p className="text-gray-600 text-xs">40% faster knowledge acquisition</p>
                 </div>
               </div>
             </div>
