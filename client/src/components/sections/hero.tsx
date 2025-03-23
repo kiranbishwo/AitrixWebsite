@@ -21,36 +21,39 @@ const Hero = () => {
               Revolutionizing <span className="text-primary">Education</span> with AI
             </h1>
             <p className="text-lg text-gray-600">
-              Our AI-driven educational platform adapts to individual learning styles, providing personalized experiences that optimize knowledge retention and accelerate skill development.
+              Our AI-driven educational platform uses neural networks to understand how individual students learn, creating adaptive lesson plans that evolve in real-time based on performance, engagement, and comprehension metrics.
+            </p>
+            <p className="text-lg text-gray-600 mt-4">
+              By combining machine learning with cognitive science, we're making education more effective, accessible, and engaging for learners of all ages and abilities.
             </p>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-start space-x-2">
                 <Zap className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold">Personalized Learning</h3>
-                  <p className="text-sm text-gray-600">Tailored to each student's unique needs</p>
+                  <h3 className="font-semibold">AI Learning Paths</h3>
+                  <p className="text-sm text-gray-600">Machine learning algorithms create custom learning journeys based on individual progress</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
                 <Brain className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold">Cognitive Analysis</h3>
-                  <p className="text-sm text-gray-600">Understands individual learning patterns</p>
+                  <h3 className="font-semibold">Neural Knowledge Mapping</h3>
+                  <p className="text-sm text-gray-600">AI constructs comprehensive cognitive models of each student's knowledge</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
                 <BookOpen className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold">Dynamic Content</h3>
-                  <p className="text-sm text-gray-600">Materials that evolve with students</p>
+                  <h3 className="font-semibold">Adaptive Content Engine</h3>
+                  <p className="text-sm text-gray-600">Real-time content generation optimized for each learning style</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
                 <ChartBar className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <h3 className="font-semibold">Progress Tracking</h3>
-                  <p className="text-sm text-gray-600">Real-time insights and analytics</p>
+                  <h3 className="font-semibold">Predictive Analytics</h3>
+                  <p className="text-sm text-gray-600">AI forecasts learning outcomes and suggests interventions</p>
                 </div>
               </div>
             </div>
