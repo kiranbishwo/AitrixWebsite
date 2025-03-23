@@ -3,7 +3,14 @@ import {
   LayoutGrid, 
   Zap, 
   Settings, 
-  Check 
+  Check,
+  BookOpen,
+  ChartBar,
+  Brain,
+  Sparkles,
+  Users,
+  Database,
+  ShieldCheck
 } from "lucide-react";
 
 const ServiceItem = ({ icon: Icon, title, description }: { icon: React.ElementType; title: string; description: string }) => (
@@ -30,41 +37,53 @@ const Services = () => {
     <section id="services" className="py-20 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="mb-16 text-center reveal">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Support & <span className="text-primary">Services</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">AI-Education <span className="text-primary">Services</span></h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We provide comprehensive support and services to ensure your educational systems operate at peak performance.
+            Our comprehensive AI-driven educational services help institutions transform traditional learning into personalized, data-driven experiences that maximize student outcomes.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-12">
           <div className="reveal">
             <div className="bg-light rounded-xl p-8 shadow-lg h-full">
-              <h3 className="text-2xl font-bold mb-6">Our Services</h3>
+              <h3 className="text-2xl font-bold mb-6">AI Educational Services</h3>
               
               <div className="space-y-6">
                 <ServiceItem 
-                  icon={Code} 
-                  title="Implementation" 
-                  description="Expert assistance in integrating our AI solutions with your existing systems and workflows." 
+                  icon={Brain} 
+                  title="Cognitive Profile Analysis" 
+                  description="Our AI analyzes each student's learning patterns to create personalized cognitive profiles that inform adaptive learning paths." 
                 />
                 
                 <ServiceItem 
-                  icon={LayoutGrid} 
-                  title="Training & Workshops" 
-                  description="Comprehensive training programs for educators and administrators to maximize system utilization." 
+                  icon={BookOpen} 
+                  title="Content Enhancement" 
+                  description="Transform your existing educational content with AI enrichment, adding interactive elements and personalized difficulty scaling." 
                 />
                 
                 <ServiceItem 
-                  icon={Zap} 
-                  title="Regular Updates" 
-                  description="Continuous improvement with regular feature updates and performance enhancements." 
+                  icon={ChartBar} 
+                  title="Learning Analytics" 
+                  description="Comprehensive data dashboards that provide real-time insights into student performance, engagement patterns, and knowledge gaps." 
                 />
                 
                 <ServiceItem 
-                  icon={Settings} 
-                  title="24/7 Technical Support" 
-                  description="Round-the-clock assistance for any technical issues or questions." 
+                  icon={Users} 
+                  title="Instructor Augmentation" 
+                  description="AI-powered teaching assistants that handle routine questions, grade assignments, and identify students who need additional support." 
+                />
+                
+                <ServiceItem 
+                  icon={Database} 
+                  title="Educational Data Integration" 
+                  description="Seamlessly connect our AI system with your existing LMS, SIS, and assessment platforms for a unified learning ecosystem." 
+                />
+                
+                <ServiceItem 
+                  icon={ShieldCheck} 
+                  title="Privacy-First Implementation" 
+                  description="FERPA/GDPR-compliant deployment with advanced data protection measures to ensure student information security." 
                 />
               </div>
             </div>
@@ -72,40 +91,59 @@ const Services = () => {
           
           <div className="reveal">
             <div className="bg-primary text-white rounded-xl p-8 shadow-lg h-full">
-              <h3 className="text-2xl font-bold mb-6">Support Plans</h3>
+              <h3 className="text-2xl font-bold mb-6">AI Education Solutions</h3>
               
-              <div className="space-y-8">
-                <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-                  <div className="flex justify-between items-start mb-4">
-                    <h4 className="font-bold text-xl">Standard</h4>
-                    <span className="bg-white text-primary px-3 py-1 rounded-full text-sm font-medium">Popular</span>
-                  </div>
-                  <ul className="space-y-3 mb-6">
-                    <PlanFeature>Email & phone support</PlanFeature>
-                    <PlanFeature>Regular system updates</PlanFeature>
-                    <PlanFeature>Basic training resources</PlanFeature>
-                  </ul>
-                  <a 
-                    href="#contact" 
-                    className="inline-block w-full text-center py-3 bg-white text-primary font-medium rounded-lg hover:bg-opacity-90 transition-colors"
-                  >
-                    Get Started
-                  </a>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4 mb-3">
+                  <Sparkles className="h-8 w-8" />
+                  <h4 className="text-xl font-bold">How AI Transforms Learning</h4>
                 </div>
                 
-                <div className="bg-white bg-opacity-10 p-6 rounded-lg">
-                  <h4 className="font-bold text-xl mb-4">Premium</h4>
-                  <ul className="space-y-3 mb-6">
-                    <PlanFeature>24/7 priority support</PlanFeature>
-                    <PlanFeature>Early access to features</PlanFeature>
-                    <PlanFeature>Custom implementation</PlanFeature>
-                    <PlanFeature>Dedicated account manager</PlanFeature>
+                <div className="bg-white bg-opacity-10 p-5 rounded-lg">
+                  <div className="flex justify-between items-center mb-3">
+                    <h5 className="font-semibold">Traditional Learning</h5>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-white bg-opacity-20">→</div>
+                    <h5 className="font-semibold">AI-Enhanced Learning</h5>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <ul className="space-y-2 text-sm">
+                        <li>• One-size-fits-all content</li>
+                        <li>• Static learning pace</li>
+                        <li>• Periodic assessments</li>
+                        <li>• Limited feedback loops</li>
+                        <li>• Reactive intervention</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <ul className="space-y-2 text-sm">
+                        <li>• Personalized content delivery</li>
+                        <li>• Adaptive learning pace</li>
+                        <li>• Continuous micro-assessments</li>
+                        <li>• Real-time feedback systems</li>
+                        <li>• Predictive intervention</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white bg-opacity-10 p-5 rounded-lg">
+                  <h5 className="font-semibold mb-3">Key AI Educational Outcomes</h5>
+                  <ul className="space-y-2">
+                    <PlanFeature>42% increase in knowledge retention</PlanFeature>
+                    <PlanFeature>37% reduction in time-to-proficiency</PlanFeature>
+                    <PlanFeature>58% improvement in student engagement</PlanFeature>
+                    <PlanFeature>31% decrease in administrative workload</PlanFeature>
                   </ul>
+                </div>
+                
+                <div className="mt-4">
                   <a 
                     href="#contact" 
                     className="inline-block w-full text-center py-3 bg-white text-primary font-medium rounded-lg hover:bg-opacity-90 transition-colors"
                   >
-                    Contact Sales
+                    Schedule a Demo
                   </a>
                 </div>
               </div>
