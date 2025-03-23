@@ -74,7 +74,10 @@ const Projects = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our <span className="text-primary">Projects</span></h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Discover how our AI-powered solutions are revolutionizing education and creating smarter learning experiences.
+            Explore our cutting-edge educational projects where artificial intelligence and machine learning are transforming how students learn, practice, and master new skills.
+          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+            Each solution leverages our proprietary neural network architecture designed specifically to model human learning processes and optimize educational outcomes.
           </p>
         </div>
         
@@ -90,8 +93,11 @@ const Projects = () => {
         </div>
         
         <div className="mt-16 text-center reveal">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto mb-6">
+            Our AI educational solutions implement cutting-edge deep learning architectures that continuously evolve with each student interaction. Using reinforcement learning algorithms, our systems identify optimal teaching strategies for each individual's cognitive profile.
+          </p>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto mb-8">
-            Our AI educational solutions blend advanced machine learning with proven pedagogical methods to create truly personalized learning experiences. By analyzing thousands of data points per student, our technology adapts in real-time to provide the perfect challenge level and content delivery method for optimal knowledge retention.
+            By processing over 5,000 data points per student session, our neural networks can detect subtle patterns in learning behavior that human educators might miss. This allows for micro-adjustments to content difficulty, explanation style, and practice frequency—creating a truly adaptive learning environment that accelerates mastery.
           </p>
           <button className="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
             Explore All Solutions

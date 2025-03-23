@@ -92,7 +92,10 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in <span className="text-primary">Touch</span></h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Have questions or ready to transform your educational approach? Reach out to our team of experts.
+            Ready to revolutionize your educational approach with AI-powered solutions? Connect with our team of AI specialists and educational technology experts.
+          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+            Whether you're an educational institution looking to implement adaptive learning systems, or a developer interested in our AI education APIs, we're here to guide your transformation.
           </p>
         </div>
         
@@ -184,10 +187,13 @@ const Contact = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-colors"
                   >
                     <option value="" disabled>Please select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="support">Technical Support</option>
-                    <option value="sales">Sales Question</option>
-                    <option value="partnership">Partnership Opportunity</option>
+                    <option value="ai-implementation">AI Implementation Consultation</option>
+                    <option value="demo">Request AI Learning Demo</option>
+                    <option value="integration">LMS Integration Services</option>
+                    <option value="custom">Custom AI Model Development</option>
+                    <option value="pilot">Educational Institution Pilot Program</option>
+                    <option value="api">AI Education API Access</option>
+                    <option value="research">Research Collaboration</option>
                   </select>
                 </div>
                 
