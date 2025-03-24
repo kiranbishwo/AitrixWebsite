@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Zap, Sparkles, BookOpen, ChartBar, Clock } from "lucide-react";
+import '@/assets/styles/styles.css'
 
 const Hero = () => {
   return (

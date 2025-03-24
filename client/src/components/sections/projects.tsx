@@ -1,11 +1,11 @@
 import { 
-  BookOpen, 
+  Signature, 
   LayoutGrid, 
-  Edit, 
+  Workflow, 
   ChevronRight,
-  Brain,
-  MessageSquareText,
-  LineChart,
+  BrainCircuit,
+  Sparkles,
+  Blocks,
   GraduationCap
 } from "lucide-react";
 
@@ -59,7 +59,7 @@ const ProjectCard = ({ icon: Icon, title, features, textColor }: ProjectCardProp
 const Projects = () => {
   const projects = [
     {
-      icon: Brain,
+      icon: BrainCircuit,
       title: "Adaptive Learning Engine",
       textColor: "text-blue-600",
       features: [
@@ -71,7 +71,7 @@ const Projects = () => {
       ]
     },
     {
-      icon: BookOpen,
+      icon: Signature,
       title: "Personalized Curriculum",
       textColor: "text-indigo-600",
       features: [
@@ -83,7 +83,7 @@ const Projects = () => {
       ]
     },
     {
-      icon: MessageSquareText,
+      icon: Sparkles,
       title: "AI Tutoring Companion",
       textColor: "text-purple-600",
       features: [
@@ -95,7 +95,7 @@ const Projects = () => {
       ]
     },
     {
-      icon: LineChart,
+      icon: Blocks,
       title: "Learning Analytics Dashboard",
       textColor: "text-cyan-600",
       features: [
@@ -107,7 +107,7 @@ const Projects = () => {
       ]
     },
     {
-      icon: Edit,
+      icon: Workflow,
       title: "Automated Assessment",
       textColor: "text-teal-600",
       features: [

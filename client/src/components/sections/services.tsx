@@ -16,7 +16,7 @@ import {
 const ServiceItem = ({ icon: Icon, title, description }: { icon: React.ElementType; title: string; description: string }) => (
   <div className="flex space-x-4">
     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary bg-opacity-10 flex items-center justify-center text-primary">
-      <Icon className="h-6 w-6" />
+      <Icon className="h-6 w-6 text-white" />
     </div>
     <div>
       <h4 className="font-semibold text-lg mb-1">{title}</h4>
@@ -87,6 +87,12 @@ const Services = () => {
                   icon={ShieldCheck} 
                   title="Privacy-First Implementation" 
                   description="FERPA/GDPR-compliant deployment with advanced data protection measures to ensure student information security." 
+                />
+
+                <ServiceItem 
+                  icon={Zap} 
+                  title="AI-Powered Tutoring" 
+                  description="Provide 24/7 AI-driven tutoring that offers instant explanations, step-by-step problem-solving assistance, and personalized study recommendations based on student progress." 
                 />
               </div>
             </div>

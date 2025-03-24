@@ -10,6 +10,7 @@ import {
   FaFacebookF,
   FaInstagram
 } from 'react-icons/fa';
+import '@/assets/styles/styles.css'
 
 interface FormData {
   firstName: string;
@@ -22,7 +23,7 @@ interface FormData {
 const ContactInfo = ({ icon: Icon, title, children }: { icon: React.ElementType; title: string; children: React.ReactNode }) => (
   <div className="flex items-start space-x-4">
     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary">
-      <Icon className="h-5 w-5" />
+      <Icon className="h-5 w-5 text-white" />
     </div>
     <div>
       <h4 className="font-medium text-gray-900">{title}</h4>
@@ -107,15 +108,15 @@ const Contact = () => {
                 
                 <div className="space-y-6">
                   <ContactInfo icon={Phone} title="Phone">
-                    +1 (555) 123-4567
+                    +977 9843019821
                   </ContactInfo>
                   
                   <ContactInfo icon={Mail} title="Email">
-                    info@aitrixlabs.com
+                    aitrixlabs@gmail.com
                   </ContactInfo>
                   
                   <ContactInfo icon={MapPin} title="Location">
-                    123 Innovation Drive, Tech Park<br />San Francisco, CA 94103
+                    Bagbazar near Ghantaghar<br />Kathmandu Nepal
                   </ContactInfo>
                 </div>
                 

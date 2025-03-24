@@ -4,6 +4,7 @@ import {
   FaFacebookF, 
   FaInstagram 
 } from 'react-icons/fa';
+import logo from '@/assets/images/logo.png';
 
 const Footer = () => {
   return (
@@ -12,8 +13,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
+              <div className="w-100  flex items-center justify-center">
+                <img src={logo} alt="Aitrix Labs Logo" className="w-auto h-10" />
               </div>
               <span className="text-xl font-bold">Aitrix Labs</span>
             </div>
