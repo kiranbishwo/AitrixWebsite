@@ -39,7 +39,7 @@ const Navbar = () => {
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white bg-opacity-80 backdrop-blur shadow-sm' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         
-        <a href="#" className="flex items-center space-x-2">
+        <a href="/" className="flex items-center space-x-2">
            <img src={logo} alt="Aitrix Labs Logo" className="w-auto h-10" />  {/* Replace the previous content */}
         </a>
         
