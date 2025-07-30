@@ -9,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
+  base: "/aitrix/",  // <---- add this line to set base path
   plugins: [
     react(),
     runtimeErrorOverlay(),
