@@ -24,16 +24,25 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Add VPS to known_hosts
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.VPS_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
-
-    - name: Deploy to VPS
+    - name: Upload build folder to VPS
       uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
-        source: "dist/public/*"
-        target: "/var/www/aitrix"
+        source: "dist"
+        target: "/var/www/aitrix_tmp"
+
+    - name: Run deploy commands on VPS
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USERNAME }}
+        key: ${{ secrets.DEPLOY_SSH_KEY }}
+        script: |
+          rm -rf /var/www/aitrix/*
+          mv /var/www/aitrix_tmp/* /var/www/aitrix/
+          rm -rf /var/www/aitrix_tmp
+          chown -R www-data:www-data /var/www/aitrix
+          chmod -R 755 /var/www/aitrix
+          nginx -t && systemctl reload nginx
