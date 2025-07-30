@@ -35,5 +35,5 @@ jobs:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
-        source: "build/*"
+        source: "dist/public/*"
         target: "/var/www/aitrix"
