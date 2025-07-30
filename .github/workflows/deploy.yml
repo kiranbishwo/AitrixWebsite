@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Node
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '20'
@@ -24,25 +24,27 @@ jobs:
     - name: Build React app
       run: npm run build
 
-    - name: Upload build folder to VPS
+    - name: Upload build folder to VPS temporary directory
       uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
         source: "dist/*"
-        target: "/var/www/aitrix"
+        target: "/var/www/aitrix_tmp"
 
-    - name: Run deploy commands on VPS
+    - name: Deploy on VPS via SSH
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
         script: |
+          set -e
           rm -rf /var/www/aitrix/*
           mv /var/www/aitrix_tmp/* /var/www/aitrix/
           rm -rf /var/www/aitrix_tmp
           chown -R www-data:www-data /var/www/aitrix
           chmod -R 755 /var/www/aitrix
-          nginx -t && systemctl reload nginx
+          nginx -t
+          systemctl reload nginx
