@@ -6,34 +6,30 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build React app
-      run: npm run build
-
-    - name: Upload build folder to VPS temporary directory
+    - name: Upload project files to VPS (excluding node_modules)
       uses: appleboy/scp-action@v0.1.7
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
-        source: "dist/*"
+        source: "."
         target: "/var/www/aitrix_tmp"
+        strip_components: 0
+        exclude: |
+          node_modules
+          .DS_Store
+          *.tar.gz
+          vite.config.ts.*
+          # Add more if needed
 
-    - name: Deploy on VPS via SSH
+    - name: Deploy and build on VPS via SSH
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.VPS_HOST }}
@@ -41,10 +37,16 @@ jobs:
         key: ${{ secrets.DEPLOY_SSH_KEY }}
         script: |
           set -e
-          rm -rf /var/www/aitrix/*
-          mv /var/www/aitrix_tmp/* /var/www/aitrix/
-          rm -rf /var/www/aitrix_tmp
+          # Remove old deploy folder
+          rm -rf /var/www/aitrix
+          mv /var/www/aitrix_tmp /var/www/aitrix
+          cd /var/www/aitrix
+          # Install dependencies and build
+          npm install --production=false
+          npm run build
+          # Change ownership and permissions
           chown -R www-data:www-data /var/www/aitrix
           chmod -R 755 /var/www/aitrix
+          # Reload nginx
           nginx -t
           systemctl reload nginx
