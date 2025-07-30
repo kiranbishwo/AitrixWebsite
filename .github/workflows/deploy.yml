@@ -31,7 +31,7 @@ jobs:
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.DEPLOY_SSH_KEY }}
         source: "dist/*"
-        target: "/var/www/aitrix_tmp"
+        target: "/var/www/aitrix"
 
     - name: Run deploy commands on VPS
       uses: appleboy/ssh-action@v1.0.0
