@@ -1,0 +1,2462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aitrix Labs - AI-Powered Education Solutions</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #3c51a3;
+            --primary-dark: #2c3e8a;
+            --secondary-color: #60a5fa;
+            --light-bg: #f8fafc;
+            --dark-bg: #1e293b;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.75rem; }
+        }
+
+        /* Utility Classes */
+        .text-primary { color: var(--primary-color); }
+        .bg-primary { background-color: var(--primary-color); }
+        .bg-light { background-color: var(--light-bg); }
+        .bg-dark { background-color: var(--dark-bg); }
+        .text-white { color: var(--white); }
+        .text-gray { color: var(--text-gray); }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+            animation: float 8s ease-in-out 1s infinite;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Better scroll performance */
+        .project-card {
+            will-change: transform;
+        }
+
+        .project-card:hover {
+            will-change: auto;
+        }
+
+        /* Hero Shapes */
+        .hero-shape {
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .hero-shape-1 {
+            top: 15%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            border-radius: 53% 47% 52% 48% / 36% 41% 59% 64%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.1));
+            animation: float 12s infinite alternate;
+        }
+        
+        .hero-shape-2 {
+            bottom: 10%;
+            left: 5%;
+            width: 200px;
+            height: 200px;
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.05));
+            animation: float 10s infinite alternate-reverse;
+        }
+
+        /* Header/Navbar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo:active img {
+            transform: scale(0.95);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--white);
+            transform: translateY(-100%);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
+
+        /* Show mobile menu only on mobile devices when active */
+        @media (max-width: 768px) {
+            .mobile-menu.active {
+                display: flex;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ensure mobile menu is completely hidden on desktop */
+        @media (min-width: 769px) {
+            .mobile-menu {
+                display: none !important;
+                visibility: hidden;
+                opacity: 0;
+            }
+            
+            .mobile-menu.active {
+                display: none !important;
+                visibility: hidden;
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+        }
+
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(60, 81, 163, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: rgba(60, 81, 163, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(60, 81, 163, 0.2);
+        }
+
+        .hero-badge-container {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            z-index: 1000;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        /* Hide hero badge on mobile screens */
+        @media (max-width: 768px) {
+            .hero-badge-container {
+                display: none;
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #3C51A3;
+            color: white;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(60, 81, 163, 0.3);
+            transition: all 0.3s ease;
+            max-width: 90%;
+        }
+
+
+        .hero-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(60, 81, 163, 0.4);
+            background: #2d3d7a;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-title .divider {
+            width: 5rem;
+            height: 0.25rem;
+            background: var(--primary-color);
+            margin: 0 auto 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 2rem;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .hero-feature {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .hero-feature-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .hero-feature h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-feature p {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-visual svg {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-stats {
+            position: absolute;
+            background: var(--white);
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+
+        .hero-stats.bottom-right {
+            bottom: -1.5rem;
+            right: -1.5rem;
+        }
+
+        .hero-stats.top-left {
+            top: 1rem;
+            left: -1.5rem;
+        }
+
+        .hero-stats-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-stats-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-stats-icon.green {
+            background: #10b981;
+        }
+
+        .hero-stats-icon.blue {
+            background: var(--primary-color);
+        }
+
+        .hero-stats-text p {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .hero-stats-text small {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-card {
+            background: var(--light-bg);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-feature {
+            background: var(--white);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-feature-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-feature h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .about-feature p {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+        }
+
+        .project-card {
+                margin: 0 0.5rem;
+            }
+            
+            .project-content {
+                padding: 1rem;
+            }
+            
+            .project-content h3 {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .projects-grid {
+                gap: 0.75rem;
+            }
+            
+            .project-card {
+                margin: 0;
+            }
+            
+            .project-header {
+                height: 6rem;
+            }
+            
+            .project-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-header {
+            height: 8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: #f8fafc;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-background-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+        }
+        
+        .bg-gradient-blue {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+        
+        .bg-gradient-indigo {
+            background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+        }
+        
+        .bg-gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+        
+        .bg-gradient-cyan {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+        
+        .bg-gradient-teal {
+            background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+        }
+        
+        .bg-gradient-sky {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+        }
+        
+        .text-blue-600 { color: #2563eb; }
+        .text-indigo-600 { color: #4f46e5; }
+        .text-purple-600 { color: #7c3aed; }
+        .text-cyan-600 { color: #0891b2; }
+        .text-teal-600 { color: #0d9488; }
+        .text-sky-600 { color: #0284c7; }
+
+        .project-header svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+        }
+
+        .project-icon {
+            width: 3rem;
+            height: 3rem;
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #1f2937;
+            font-family: inherit;
+            line-height: 1.3;
+        }
+
+        .project-features {
+            list-style: none;
+        }
+
+        .project-features li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-feature-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: #1f2937;
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+            margin-top: 0.375rem;
+        }
+
+        .project-features span {
+            font-size: 0.875rem;
+            color: #374151;
+            line-height: 1.5;
+            font-family: inherit;
+            font-weight: 400;
+        }
+
+        /* Services Section */
+        .services-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .services-list {
+            background: var(--light-bg);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .service-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .service-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: white;
+        }
+
+        /* Service icon background colors */
+        .service-icon.cognitive {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .service-icon.content {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .service-icon.analytics {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .service-icon.assessment {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .service-icon.tutoring {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .service-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .service-content p {
+            color: var(--text-gray);
+        }
+
+        .services-highlight {
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .services-highlight h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-column h5 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-column ul {
+            list-style: none;
+            font-size: 0.875rem;
+        }
+
+        .comparison-column li {
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-features {
+            list-style: none;
+        }
+
+        .highlight-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-features li::before {
+            content: '✓';
+            color: var(--white);
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--white);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+        }
+
+        .contact-info-content {
+            padding: 2.5rem;
+        }
+
+        .contact-info-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            padding: 1.25rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon.phone {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .contact-icon.email {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .contact-icon.location {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        }
+
+        .contact-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: white;
+        }
+
+        .contact-details h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .contact-details div {
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--secondary-color);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-input:hover,
+        .form-select:hover,
+        .form-textarea:hover {
+            border-color: #9ca3af;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 6rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+        }
+
+        .form-submit:hover::before {
+            left: 100%;
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            margin-top: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            color: #059669;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            display: none;
+            font-weight: 500;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4,
+        .footer-section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--white);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem 0 0 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .newsletter-button {
+            padding: 0.75rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 0.5rem 0.5rem 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .newsletter-disclaimer {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin: 0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .about-content,
+            .services-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .hero {
+                padding-top: 4rem;
+            }
+
+            .hero-stats {
+                position: static;
+                margin-top: 1rem;
+            }
+
+            .hero-stats.bottom-right,
+            .hero-stats.top-left {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo" id="headerLogo">
+                    <img src="logo.png" alt="Aitrix Labs Logo">
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#projects" onclick="closeMobileMenu()">Projects</a>
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text reveal">
+                    <div class="hero-badge-container">
+                        <span class="hero-badge">Transforming Educational Experiences with Advanced AI Technology</span>
+                    </div>
+                    
+                    <h1>Revolutionizing <span class="text-primary">Education</span> with AI</h1>
+                    
+                    <p>Our AI-driven educational platform uses neural networks to understand how individual students learn, creating adaptive lesson plans that evolve in real-time based on performance, engagement, and comprehension metrics.</p>
+                    
+                    <p>By combining machine learning with cognitive science, we're making education more effective, accessible, and engaging for learners of all ages and abilities.</p>
+                    
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <svg class="hero-feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                            </svg>
+                            <div>
+                                <h3>AI Learning Paths</h3>
+                                <p>Machine learning algorithms create custom learning journeys based on individual progress</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-feature">
+                            <svg class="hero-feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-6.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path>
+                            </svg>
+                            <div>
+                                <h3>Neural Knowledge Mapping</h3>
+                                <p>AI constructs comprehensive cognitive models of each student's knowledge</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-feature">
+                            <svg class="hero-feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            <div>
+                                <h3>Adaptive Content Engine</h3>
+                                <p>Real-time content generation optimized for each learning style</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-feature">
+                            <svg class="hero-feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"></path>
+                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                            </svg>
+                            <div>
+                                <h3>Predictive Analytics</h3>
+                                <p>AI forecasts learning outcomes and suggests interventions</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#about" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual reveal animate-float">
+                    <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="600" height="400" rx="12" fill="#f8fafc"/>
+                        
+                        <!-- Neural network background -->
+                        <path d="M110,200 Q160,100 250,150 T350,120 T450,200" stroke="#3b82f6" stroke-width="6" fill="none"/>
+                        <path d="M150,220 Q200,280 300,240 T450,260" stroke="#60a5fa" stroke-width="4" fill="none" stroke-dasharray="6 4"/>
+                        <path d="M100,150 Q180,180 250,140 T400,160 T500,120" stroke="#93c5fd" stroke-width="3" fill="none" stroke-dasharray="2 3"/>
+                        
+                        <!-- Brain representation -->
+                        <ellipse cx="300" cy="180" rx="120" ry="100" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+                        <path d="M240,140 Q300,100 360,140 T320,220 T280,220 T240,140" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+                        <path d="M260,160 Q300,130 340,160 T310,210 T290,210 T260,160" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1"/>
+                        
+                        <!-- Abstract data connections -->
+                        <circle cx="200" cy="100" r="15" fill="#2563eb" fill-opacity="0.6"/>
+                        <circle cx="400" cy="120" r="12" fill="#3b82f6" fill-opacity="0.7"/>
+                        <circle cx="480" cy="200" r="18" fill="#60a5fa" fill-opacity="0.8"/>
+                        <circle cx="150" cy="250" r="20" fill="#93c5fd" fill-opacity="0.6"/>
+                        <circle cx="320" cy="280" r="16" fill="#2563eb" fill-opacity="0.5"/>
+                        <circle cx="420" cy="260" r="14" fill="#3b82f6" fill-opacity="0.7"/>
+                        
+                        <!-- Connection lines -->
+                        <line x1="200" y1="100" x2="240" y2="140" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <line x1="400" y1="120" x2="360" y2="140" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <line x1="480" y1="200" x2="400" y2="180" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <line x1="150" y1="250" x2="200" y2="220" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <line x1="320" y1="280" x2="300" y2="240" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <line x1="420" y1="260" x2="380" y2="220" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        
+                        <!-- Student figure -->
+                        <circle cx="150" cy="330" r="20" fill="#3b82f6"/>
+                        <rect x="130" y="350" width="40" height="50" rx="10" fill="#3b82f6"/>
+                        
+                        <!-- Book or screen -->
+                        <rect x="220" y="320" width="70" height="50" rx="5" fill="#1e40af"/>
+                        <rect x="230" y="330" width="50" height="30" rx="2" fill="#dbeafe"/>
+                        
+                        <!-- AI connection beam -->
+                        <path d="M180,330 Q250,280 300,220" stroke="#60a5fa" stroke-width="3" stroke-dasharray="4 2"/>
+                        
+                        <!-- Text labels -->
+                        <text x="320" y="340" font-size="18" font-weight="bold" fill="#1e293b">AI-Powered Education</text>
+                        <text x="320" y="360" font-size="14" fill="#475569">Personalized Learning</text>
+                    </svg>
+                    
+                    <div class="hero-stats bottom-right animate-float-delayed">
+                        <div class="hero-stats-content">
+                            <div class="hero-stats-icon green">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div class="hero-stats-text">
+                                <p>Trusted by</p>
+                                <small>500+ Educational Institutions</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats top-left animate-float-delayed">
+                        <div class="hero-stats-content">
+                            <div class="hero-stats-icon blue">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="hero-stats-text">
+                                <p>Learning Efficiency</p>
+                                <small>40% faster knowledge acquisition</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-white">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>About <span class="text-primary">Aitrix Labs</span></h2>
+                <div class="divider"></div>
+                <p>We're pioneering the fusion of artificial intelligence and education to create learning experiences that adapt to each student's unique needs and potential.</p>
+                <p>Our AI-powered educational platforms analyze individual learning patterns in real-time, automatically adjusting content difficulty, teaching methods, and pace to optimize comprehension and retention.</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-card reveal">
+                    <h3>Our Mission</h3>
+                    <p>At Aitrix Labs, we're pioneering the intersection of artificial intelligence and education. Our mission is to create learning experiences that adapt to each student's unique needs, learning style, and pace. By combining advanced AI algorithms with proven educational methodologies, we're building tools that make personalized learning scalable and accessible to everyone.</p>
+                    <p>Our interdisciplinary team of AI researchers, educational psychologists, and experienced educators work together to develop intelligent systems that understand how humans learn, identify knowledge gaps, and dynamically adjust to optimize educational outcomes.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <svg class="about-feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                            </svg>
+                            <h4>AI Innovation</h4>
+                            <p>Neural networks that understand cognitive learning patterns and adapt teaching methods in real-time</p>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <svg class="about-feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <path d="M20 8v6"></path>
+                                <path d="M23 11h-6"></path>
+                            </svg>
+                            <h4>Inclusive Learning</h4>
+                            <p>Intelligent systems that accommodate diverse learning styles, abilities, and educational backgrounds</p>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <svg class="about-feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <h4>Data Protection</h4>
+                            <p>Advanced security protocols ensuring student data privacy while enabling powerful personalization</p>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <svg class="about-feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
+                            </svg>
+                            <h4>Adaptive Technology</h4>
+                            <p>Self-optimizing algorithms that continually refine teaching approaches based on performance data</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="600" height="400" rx="12" fill="#f8fafc"/>
+                        
+                        <!-- Background with neural network pattern -->
+                        <rect x="50" y="50" width="500" height="300" rx="8" fill="#f1f5f9"/>
+                        
+                        <!-- Neural network connections -->
+                        <path d="M100,120 Q180,80 260,120 T420,90 T520,140" stroke="#60a5fa" stroke-width="2" stroke-dasharray="4 2"/>
+                        <path d="M80,180 Q160,220 260,180 T380,220 T520,200" stroke="#3b82f6" stroke-width="2" stroke-dasharray="2 3"/>
+                        <path d="M100,250 Q200,290 300,250 T450,270" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 1"/>
+                        
+                        <!-- Neural network nodes -->
+                        <circle cx="100" cy="120" r="6" fill="#3b82f6"/>
+                        <circle cx="180" cy="80" r="5" fill="#3b82f6"/>
+                        <circle cx="260" cy="120" r="6" fill="#3b82f6"/>
+                        <circle cx="340" cy="90" r="5" fill="#3b82f6"/>
+                        <circle cx="420" cy="90" r="6" fill="#3b82f6"/>
+                        <circle cx="520" cy="140" r="5" fill="#3b82f6"/>
+                        
+                        <circle cx="80" cy="180" r="5" fill="#3b82f6"/>
+                        <circle cx="160" cy="220" r="6" fill="#3b82f6"/>
+                        <circle cx="260" cy="180" r="5" fill="#3b82f6"/>
+                        <circle cx="340" cy="210" r="6" fill="#3b82f6"/>
+                        <circle cx="380" cy="220" r="5" fill="#3b82f6"/>
+                        <circle cx="520" cy="200" r="6" fill="#3b82f6"/>
+                        
+                        <circle cx="100" cy="250" r="6" fill="#3b82f6"/>
+                        <circle cx="200" cy="290" r="5" fill="#3b82f6"/>
+                        <circle cx="300" cy="250" r="6" fill="#3b82f6"/>
+                        <circle cx="450" cy="270" r="5" fill="#3b82f6"/>
+                        
+                        <!-- Brain outline -->
+                        <ellipse cx="300" cy="170" rx="90" ry="75" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                        <path d="M255,120 Q300,90 345,120 T330,190 T270,190 T255,120" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+                        
+                        <!-- Education icons -->
+                        <rect x="120" y="300" width="40" height="50" rx="4" fill="#2563eb"/>
+                        <rect x="125" y="305" width="30" height="10" rx="2" fill="white"/>
+                        <rect x="125" y="320" width="30" height="10" rx="2" fill="white"/>
+                        <rect x="125" y="335" width="20" height="10" rx="2" fill="white"/>
+                        
+                        <rect x="210" y="320" width="40" height="30" rx="4" fill="#3b82f6"/>
+                        <circle cx="230" cy="298" r="15" fill="#3b82f6"/>
+                        <rect x="225" cy="325" width="10" height="20" rx="2" fill="white"/>
+                        
+                        <rect x="350" y="300" width="60" height="40" rx="4" fill="#60a5fa"/>
+                        <rect x="360" y="310" width="40" height="5" rx="1" fill="white"/>
+                        <rect x="360" y="320" width="40" height="5" rx="1" fill="white"/>
+                        <rect x="360" y="330" width="25" height="5" rx="1" fill="white"/>
+                        
+                        <rect x="450" y="310" width="30" height="35" rx="4" fill="#93c5fd"/>
+                        <circle cx="465" cy="290" r="12" fill="#93c5fd"/>
+                        <rect x="460" y="320" width="10" height="20" rx="2" fill="white"/>
+                        
+                        <!-- Connected education concept lines -->
+                        <line x1="140" y1="300" x2="255" y2="220" stroke="#2563eb" stroke-width="1" stroke-dasharray="3 2"/>
+                        <line x1="230" y1="298" x2="270" y2="220" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3 2"/>
+                        <line x1="380" y1="300" x2="330" y2="220" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3 2"/>
+                        <line x1="465" y1="290" x2="345" y2="200" stroke="#93c5fd" stroke-width="1" stroke-dasharray="3 2"/>
+                        
+                        <!-- Text label -->
+                        <text x="180" y="380" font-size="24" font-weight="bold" fill="#1e293b">AI-Powered Education</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our <span class="text-primary">Projects</span></h2>
+                <div class="divider"></div>
+                <p>Explore our cutting-edge educational projects where artificial intelligence and machine learning are transforming how students learn, practice, and master new skills.</p>
+                <p>Each solution leverages our proprietary neural network architecture designed specifically to model human learning processes and optimize educational outcomes.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Adaptive Learning Engine -->
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <!-- BrainCircuit icon -->
+                        <svg class="project-icon text-blue-600" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+                            <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+                            <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+                            <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/>
+                            <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/>
+                            <path d="M3.477 10.896a4 4 0 0 1 .585-.396"/>
+                            <path d="M19.938 10.5a4 4 0 0 1 .585.396"/>
+                            <path d="M6 18a4 4 0 0 1-1.967-.516"/>
+                            <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3>Adaptive Learning Engine</h3>
+                        <ul class="project-features">
+                            <li><div class="project-feature-dot"></div><span>Real-time learning pattern analysis</span></li>
+                            <li><div class="project-feature-dot"></div><span>Dynamic difficulty adjustment</span></li>
+                            <li><div class="project-feature-dot"></div><span>Cognitive load optimization</span></li>
+                            <li><div class="project-feature-dot"></div><span>Memory retention algorithms</span></li>
+                            <li><div class="project-feature-dot"></div><span>Student engagement monitoring</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Personalized Curriculum -->
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <!-- Signature icon -->
+                        <svg class="project-icon text-indigo-600" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                            <line x1="16" y1="8" x2="2" y2="22"/>
+                            <line x1="17.5" y1="15" x2="9" y2="15"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3>Personalized Curriculum</h3>
+                        <ul class="project-features">
+                            <li><div class="project-feature-dot"></div><span>AI content generation</span></li>
+                            <li><div class="project-feature-dot"></div><span>Learning style detection</span></li>
+                            <li><div class="project-feature-dot"></div><span>Interest-based curriculum mapping</span></li>
+                            <li><div class="project-feature-dot"></div><span>Knowledge gap identification</span></li>
+                            <li><div class="project-feature-dot"></div><span>Custom learning path creation</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project 3: AI Tutoring Companion -->
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <!-- Sparkles icon -->
+                        <svg class="project-icon text-purple-600" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                            <path d="M20 3v4"/>
+                            <path d="M22 5h-4"/>
+                            <path d="M4 17v2"/>
+                            <path d="M5 18H3"/>
+                                </svg>
+                            </div>
+                            <div class="project-content">
+                                <h3>AI Tutoring Companion</h3>
+                                <ul class="project-features">
+                                    <li><div class="project-feature-dot"></div><span>24/7 instant feedback</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Natural language explanations</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Socratic questioning method</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Conceptual understanding verification</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Multi-language support</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                <!-- Project 4: Learning Analytics Dashboard -->
+                        <div class="project-card reveal">
+                            <div class="project-header">
+                        <!-- Blocks icon -->
+                        <svg class="project-icon text-cyan-600" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="7" height="7" x="3" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="3" rx="1"/>
+                            <rect width="7" height="7" x="14" y="14" rx="1"/>
+                            <rect width="7" height="7" x="3" y="14" rx="1"/>
+                                </svg>
+                            </div>
+                            <div class="project-content">
+                                <h3>Learning Analytics Dashboard</h3>
+                                <ul class="project-features">
+                                    <li><div class="project-feature-dot"></div><span>Real-time performance tracking</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Engagement pattern analysis</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Early intervention alerts</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Teaching strategy optimization</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Data visualization tools</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                <!-- Project 5: Automated Assessment -->
+                        <div class="project-card reveal">
+                            <div class="project-header">
+                        <!-- Workflow icon -->
+                        <svg class="project-icon text-teal-600" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="5" width="6" height="6" rx="1"/>
+                            <path d="m3 17 2 2 4-4"/>
+                            <path d="M13 6h8"/>
+                            <path d="M13 12h8"/>
+                            <path d="M13 18h8"/>
+                                </svg>
+                            </div>
+                            <div class="project-content">
+                                <h3>Automated Assessment</h3>
+                                <ul class="project-features">
+                                    <li><div class="project-feature-dot"></div><span>Essay grading neural networks</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Plagiarism detection</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Detailed feedback generation</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Rubric-based evaluation</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Multi-format assessment support</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                <!-- Project 6: Skill-Gap Predictor -->
+                        <div class="project-card reveal">
+                            <div class="project-header">
+                        <!-- GraduationCap icon -->
+                        <svg class="project-icon text-sky-600" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                </svg>
+                            </div>
+                            <div class="project-content">
+                                <h3>Skill-Gap Predictor</h3>
+                                <ul class="project-features">
+                                    <li><div class="project-feature-dot"></div><span>Predictive learning analytics</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Future challenge identification</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Personalized intervention planning</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Learning trajectory modeling</span></li>
+                                    <li><div class="project-feature-dot"></div><span>Long-term skill development tracking</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center reveal" style="margin-top: 4rem;">
+                        <p style="font-size: 1.125rem; color: var(--text-gray); max-width: 4xl; margin: 0 auto 1.5rem;">Our AI educational solutions implement cutting-edge deep learning architectures that continuously evolve with each student interaction. Using reinforcement learning algorithms, our systems identify optimal teaching strategies for each individual's cognitive profile.</p>
+                        <p style="font-size: 1.125rem; color: var(--text-gray); max-width: 4xl; margin: 0 auto 2rem;">By processing over 5,000 data points per student session, our neural networks can detect subtle patterns in learning behavior that human educators might miss. This allows for micro-adjustments to content difficulty, explanation style, and practice frequency—creating a truly adaptive learning environment that accelerates mastery.</p>
+                        <button class="btn btn-primary" style="transform: scale(1.05); box-shadow: 0 4px 12px rgba(60, 81, 163, 0.3);">Explore All Solutions</button>
+                </div>
+            </section>
+        
+            <!-- Services Section -->
+            <section id="services" class="section bg-white">
+                <div class="container">
+                    <div class="section-title reveal">
+                        <h2>AI-Education <span class="text-primary">Services</span></h2>
+                        <div class="divider"></div>
+                        <p>Our suite of AI-powered educational solutions leverages machine learning algorithms, natural language processing, and neural networks to transform traditional learning environments into intelligent, adaptive systems.</p>
+                        <p>By applying cutting-edge artificial intelligence to the science of learning, we're creating educational experiences that continuously evolve to meet each student's unique needs, abilities, and learning style.</p>
+                    </div>
+                    
+                    <div class="services-content">
+                        <div class="services-list reveal">
+                            <h3>AI Educational Services</h3>
+                            
+                            <div class="service-item">
+                                <div class="service-icon cognitive">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-6.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>Cognitive Profile Analysis</h4>
+                                    <p>Our AI analyzes each student's learning patterns to create personalized cognitive profiles that inform adaptive learning paths.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item">
+                                <div class="service-icon content">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>Content Enhancement</h4>
+                                    <p>Transform your existing educational content with AI enrichment, adding interactive elements and personalized difficulty scaling.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item">
+                                <div class="service-icon analytics">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 3v18h18"></path>
+                                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>Learning Analytics</h4>
+                                    <p>Comprehensive data dashboards that provide real-time insights into student performance, engagement patterns, and knowledge gaps.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item">
+                                <div class="service-icon assessment">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="8.5" cy="7" r="4"></circle>
+                                        <path d="M20 8v6"></path>
+                                        <path d="M23 11h-6"></path>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>Instructor Augmentation</h4>
+                                    <p>AI-powered teaching assistants that handle routine questions, grade assignments, and identify students who need additional support.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>Educational Data Integration</h4>
+                                    <p>Seamlessly connect our AI system with your existing LMS, SIS, and assessment platforms for a unified learning ecosystem.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>Privacy-First Implementation</h4>
+                                    <p>FERPA/GDPR-compliant deployment with advanced data protection measures to ensure student information security.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-item">
+                                <div class="service-icon tutoring">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                                    </svg>
+                                </div>
+                                <div class="service-content">
+                                    <h4>AI-Powered Tutoring</h4>
+                                    <p>Provide 24/7 AI-driven tutoring that offers instant explanations, step-by-step problem-solving assistance, and personalized study recommendations based on student progress.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="services-highlight reveal">
+                            <h3>AI Education Solutions</h3>
+                            
+                            <div class="highlight-section">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                    <h4 style="font-size: 1.25rem; font-weight: 700;">How AI Transforms Learning</h4>
+                                </div>
+                                
+                                <div class="comparison-grid">
+                                    <div class="comparison-column">
+                                        <h5 style="font-weight: 600; margin-bottom: 0.5rem;">Traditional Learning</h5>
+                                        <ul style="list-style: none; font-size: 0.875rem;">
+                                            <li>• Standardized curriculum for all</li>
+                                            <li>• Fixed learning sequence</li>
+                                            <li>• End-of-unit assessments</li>
+                                            <li>• Generic feedback</li>
+                                            <li>• Manual student monitoring</li>
+                                        </ul>
+                                    </div>
+                                    <div class="comparison-arrow">→</div>
+                                    <div class="comparison-column">
+                                        <h5 style="font-weight: 600; margin-bottom: 0.5rem;">AI-Enhanced Learning</h5>
+                                        <ul style="list-style: none; font-size: 0.875rem;">
+                                            <li>• Neural network-optimized content</li>
+                                            <li>• AI-generated learning pathways</li>
+                                            <li>• Continuous knowledge modeling</li>
+                                            <li>• Natural language feedback</li>
+                                            <li>• Machine learning insights</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-section">
+                                <h5 style="font-weight: 600; margin-bottom: 0.75rem;">Our AI Educational Technologies</h5>
+                                <ul style="list-style: none; font-size: 0.875rem;">
+                                    <li style="margin-bottom: 0.75rem;"><span style="font-weight: 600;">Cognitive Modeling:</span> Neural networks that map knowledge states and learning patterns</li>
+                                    <li style="margin-bottom: 0.75rem;"><span style="font-weight: 600;">NLP Analysis:</span> Real-time comprehension assessment through natural language processing</li>
+                                    <li style="margin-bottom: 0.75rem;"><span style="font-weight: 600;">Reinforcement Learning:</span> Content sequencing algorithms that optimize for knowledge retention</li>
+                                    <li style="margin-bottom: 0.75rem;"><span style="font-weight: 600;">Predictive Analytics:</span> Early intervention system for at-risk students</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="highlight-section">
+                                <h5 style="font-weight: 600; margin-bottom: 0.75rem;">Key AI Educational Outcomes</h5>
+                                <ul class="highlight-features">
+                                    <li>42% increase in knowledge retention</li>
+                                    <li>37% reduction in time-to-proficiency</li>
+                                    <li>58% improvement in student engagement</li>
+                                    <li>31% decrease in administrative workload</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-top: 1rem;">
+                                <a href="#contact" class="cta-button">Schedule a Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Contact Section -->
+            <section id="contact" class="section bg-light">
+                <div class="container">
+                    <div class="section-title reveal">
+                        <h2>Get in <span class="text-primary">Touch</span></h2>
+                        <div class="divider"></div>
+                        <p>Ready to revolutionize your educational approach with AI-powered solutions? Connect with our team of AI specialists and educational technology experts.</p>
+                        <p>Whether you're an educational institution looking to implement adaptive learning systems, or a developer interested in our AI education APIs, we're here to guide your transformation.</p>
+                    </div>
+                    
+                    <div class="contact-content">
+                        <div class="contact-info reveal">
+                            <div class="contact-info-content">
+                                <h3>Contact Information</h3>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon phone">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Phone</h4>
+                                        <div>+977 9843019821</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon email">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                            <polyline points="22,6 12,13 2,6"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Email</h4>
+                                        <div>aitrixlabs@gmail.com</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <div class="contact-icon location">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                            <circle cx="12" cy="10" r="3"></circle>
+                                        </svg>
+                                    </div>
+                                    <div class="contact-details">
+                                        <h4>Location</h4>
+                                        <div>Bagbazar near Ghantaghar<br>Kathmandu Nepal</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 2rem;">
+                                    <h4 style="font-weight: 600; margin-bottom: 1rem;">Connect With Us</h4>
+                                    <div class="social-links">
+                                        <a href="#" class="social-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="social-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                                                <circle cx="4" cy="4" r="2"/>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="social-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="social-link">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-form reveal">
+                            <h3>Send Us a Message</h3>
+                            
+                            <form id="contactForm">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" class="form-input" placeholder="John" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" id="lastName" name="lastName" class="form-input" placeholder="Doe" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="john.doe@example.com" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select id="subject" name="subject" class="form-select" required>
+                                        <option value="" disabled selected>Please select a subject</option>
+                                        <option value="ai-implementation">AI Implementation Consultation</option>
+                                        <option value="demo">Request AI Learning Demo</option>
+                                        <option value="integration">LMS Integration Services</option>
+                                        <option value="custom">Custom AI Model Development</option>
+                                        <option value="pilot">Educational Institution Pilot Program</option>
+                                        <option value="api">AI Education API Access</option>
+                                        <option value="research">Research Collaboration</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea id="message" name="message" class="form-textarea" placeholder="Your message here..." required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="form-submit">Send Message</button>
+                                
+                                <div class="success-message" id="successMessage">
+                                    Your message has been sent successfully!
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <div class="footer-logo">
+                                <img src="logo.png" alt="Aitrix Labs Logo">
+                            </div>
+                            <p>Transforming education through innovative AI technology. Building the future of learning, one algorithm at a time.</p>
+                            <div class="footer-social">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <!-- FaTwitter -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <!-- FaLinkedinIn -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <!-- FaFacebookF -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                    <!-- FaInstagram -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.281c-.49 0-.98-.49-.98-.98s.49-.98.98-.98.98.49.98.98-.49.98-.98.98zm-7.83 1.297c-1.297 0-2.448 1.151-2.448 2.448s1.151 2.448 2.448 2.448 2.448-1.151 2.448-2.448-1.151-2.448-2.448-2.448z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="footer-section-title">Quick Links</h4>
+                            <ul class="footer-links">
+                                <li><a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                                <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                                <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Our Projects</a></li>
+                                <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                                <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="footer-section-title">Resources</h4>
+                            <ul class="footer-links">
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API References</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Knowledge Base</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutorials</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="footer-section-title">Subscribe</h4>
+                            <p class="text-gray-400 mb-4">Stay updated with our latest news and releases</p>
+                            <form class="newsletter-form">
+                                <input type="email" class="newsletter-input" placeholder="Enter your email" aria-label="Email for newsletter">
+                                <button type="submit" class="newsletter-button" aria-label="Subscribe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </form>
+                            <p class="newsletter-disclaimer">By subscribing, you agree to our Privacy Policy</p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <p>&copy; 2024 Aitrix Labs. All rights reserved.</p>
+                        <div class="footer-bottom-links">
+                            <a href="/privacy-policy" class="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                            <a href="/terms-and-conditions" class="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script>
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+            function openMobileMenu() {
+                // Only open mobile menu on mobile devices
+                if (window.innerWidth <= 768) {
+                    // Ensure mobile menu is positioned correctly
+                    mobileMenu.style.position = 'fixed';
+                    mobileMenu.style.top = '0';
+                    mobileMenu.style.left = '0';
+                    mobileMenu.style.right = '0';
+                    mobileMenu.style.bottom = '0';
+                    mobileMenu.style.zIndex = '9999';
+                    
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.position = 'fixed';
+                    document.body.style.width = '100%';
+                }
+            }
+
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'unset';
+                document.body.style.position = 'unset';
+                document.body.style.width = 'unset';
+            }
+
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+
+            // Close mobile menu when clicking on links
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // Handle window resize to ensure mobile menu behavior is correct
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    // Close mobile menu if window is resized to desktop size
+                    closeMobileMenu();
+                }
+            });
+
+            // Ensure mobile menu works properly on scroll
+            window.addEventListener('scroll', () => {
+                // If mobile menu is open, ensure it stays properly positioned
+                if (mobileMenu.classList.contains('active') && window.innerWidth <= 768) {
+                    mobileMenu.style.position = 'fixed';
+                    mobileMenu.style.top = '0';
+                    mobileMenu.style.left = '0';
+                    mobileMenu.style.right = '0';
+                    mobileMenu.style.bottom = '0';
+                }
+            });
+
+            // Header logo click to scroll to top
+            const headerLogo = document.getElementById('headerLogo');
+            headerLogo.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Ensure mobile menu starts in correct state
+            function initializeMobileMenu() {
+                if (window.innerWidth <= 768) {
+                    // On mobile, ensure menu starts hidden
+                    mobileMenu.classList.remove('active');
+                } else {
+                    // On desktop, ensure menu is completely hidden
+                    mobileMenu.classList.remove('active');
+                }
+            }
+
+            // Initialize mobile menu state on page load
+            initializeMobileMenu();
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.addEventListener('click', (e) => {
+                const target = e.target.closest('a[href^="#"]');
+                if (target) {
+                    e.preventDefault();
+                    const targetId = target.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+
+            // Reveal animation on scroll
+            function revealOnScroll() {
+                const reveals = document.querySelectorAll('.reveal');
+                
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add('active');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', revealOnScroll);
+            
+            // Initial reveal check
+            setTimeout(revealOnScroll, 100);
+
+            // Contact form handling
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Basic validation
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (!email.includes('@') || message.trim() === '') {
+                    return;
+                }
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Hide success message after 3 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+            });
+
+            // Newsletter form handling
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('.newsletter-input').value;
+                if (email.includes('@')) {
+                    // Here you would typically send the email to your backend
+                    console.log('Newsletter subscription:', email);
+                    newsletterForm.querySelector('.newsletter-input').value = '';
+                }
+            });
+
+            // Scroll reveal animation with improved performance
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -30px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Unobserve after animation to improve performance
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Initialize animations
+            document.querySelectorAll('.reveal').forEach(el => {
+                observer.observe(el);
+            });
+        </script>
+    </body>
+</html>
+          
