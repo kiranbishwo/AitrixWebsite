@@ -116,7 +116,7 @@ export function HomeHero() {
     <Hero
       title={
         <>
-          <span className="bg-gradient-to-br from-white to-[#c4b8ff] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-br from-white to-[#b8c4e8] bg-clip-text text-transparent">
             Nepal&apos;s
           </span>{' '}
           Most Comprehensive AI Company

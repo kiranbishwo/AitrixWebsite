@@ -1,15 +1,29 @@
+import { Link } from 'react-router-dom'
 import educationBanner from '../assets/banners/education.svg'
+import {
+  ArrowRightIcon,
+  BookIcon,
+  GraphIcon,
+  PhoneIcon,
+  StackIcon,
+  StarIcon,
+  SwapIcon,
+} from '../components/icons/Icons'
 import { CTABar } from '../components/sections/CTABar'
 import { FeatureGrid, type Feature } from '../components/sections/FeatureGrid'
 import { Hero } from '../components/sections/Hero'
 import { Newsletter } from '../components/sections/Newsletter'
 import { SolutionTabs } from '../components/sections/SolutionTabs'
-import {
-  GraphIcon,
-  StackIcon,
-  StarIcon,
-  SwapIcon,
-} from '../components/icons/Icons'
+import { Section } from '../components/ui/Container'
+import { Eyebrow } from '../components/ui/Eyebrow'
+import { Reveal } from '../components/ui/Reveal'
+
+const PILLAR_LINKS = [
+  { to: '/solutions/edtech', label: 'EdTech', hint: 'LMS, CMS, analytics', Icon: BookIcon },
+  { to: '/solutions/communication', label: 'Communication', hint: 'Livechat & notifications', Icon: SwapIcon },
+  { to: '/solutions/telephony', label: 'Telephony', hint: 'PBX, IVR, call analytics', Icon: PhoneIcon },
+  { to: '/solutions/ai-research', label: 'AI research tools', hint: 'NLP & responsible AI', Icon: StarIcon },
+] as const
 
 const SOLUTION_FEATURES: Feature[] = [
   {
@@ -17,7 +31,7 @@ const SOLUTION_FEATURES: Feature[] = [
     title: 'Unified EdTech operations',
     description:
       'Bring academics, administration, and communications onto one AI-ready platform — and stop juggling tools.',
-    accent: '#6B57FF',
+    accent: '#5366AE',
   },
   {
     Icon: SwapIcon,
@@ -53,6 +67,29 @@ export function SolutionsPage() {
         secondaryCta={{ label: 'Browse Products', to: '/products' }}
         bgImage={educationBanner}
       />
+      <Section className="border-t border-ink-900 bg-black">
+        <Reveal>
+          <Eyebrow className="text-ink-400">By solution</Eyebrow>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {PILLAR_LINKS.map(({ to, label, hint, Icon }) => (
+              <Link
+                key={to}
+                to={to}
+                className="group flex items-center gap-3 rounded-xl border border-ink-900 bg-ink-950/50 p-4 transition-colors hover:border-ink-800 hover:bg-ink-950"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-ink-800 bg-black text-primary">
+                  <Icon className="h-[18px] w-[18px]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm font-semibold text-white">{label}</div>
+                  <div className="text-[11px] text-ink-500">{hint}</div>
+                </div>
+                <ArrowRightIcon className="h-3.5 w-3.5 shrink-0 text-ink-600 transition-colors group-hover:text-primary" />
+              </Link>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
       <FeatureGrid
         eyebrow="By need"
         title="Pick the outcome you care about most"

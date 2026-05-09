@@ -6,7 +6,7 @@ export function LogoMarquee() {
   return (
     <div className="overflow-hidden border-y border-ink-900 bg-black py-7">
       <div className="mb-4 text-center text-[11px] uppercase tracking-[2px] text-ink-500">
-        Trusted by educators, enterprises, and institutions across Nepal
+        We are experts in
       </div>
       <div
         className="overflow-hidden"
@@ -33,7 +33,7 @@ export function LogoMarquee() {
             ) : (
               <div
                 key={`${item.value}-${i}`}
-                className="flex shrink-0 items-center px-2 text-[13px] font-bold tracking-[0.5px] text-ink-500"
+                className="flex max-w-[200px] shrink-0 items-center px-2 text-center text-[13px] font-bold tracking-[0.5px] text-ink-500 opacity-55 transition hover:opacity-100"
               >
                 {item.value}
               </div>

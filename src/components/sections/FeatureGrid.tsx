@@ -8,6 +8,8 @@ export interface Feature {
   description: string
   Icon?: (props: { className?: string }) => ReactNode
   accent?: string
+  /** Scroll target for in-page / hash navigation */
+  anchorId?: string
 }
 
 interface FeatureGridProps {
@@ -55,12 +57,13 @@ export function FeatureGrid({
           {features.map((f) => (
             <div
               key={f.title}
-              className="flex flex-col gap-3 rounded-[10px] border border-ink-900 bg-ink-900/60 p-7"
+              id={f.anchorId}
+              className={`flex flex-col gap-3 rounded-[10px] border border-ink-900 bg-ink-900/60 p-7${f.anchorId ? ' scroll-mt-28' : ''}`}
             >
               {f.Icon && (
                 <div
                   className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-800"
-                  style={{ color: f.accent ?? '#6B57FF' }}
+                  style={{ color: f.accent ?? '#5366AE' }}
                 >
                   <f.Icon className="h-5 w-5" />
                 </div>

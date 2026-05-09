@@ -24,19 +24,16 @@ export interface MarqueeItem {
 }
 
 export const MARQUEE: MarqueeItem[] = [
-  { type: 'image', value: '/logo.png', alt: 'Partner school' },
-  { type: 'text', value: 'Enterprise' },
-  { type: 'image', value: '/logo.png', alt: 'Partner institution' },
-  { type: 'text', value: 'Telecom' },
-  { type: 'image', value: '/logo.png', alt: 'Partner university' },
-  { type: 'text', value: 'K–12' },
-  { type: 'image', value: '/logo.png', alt: 'Partner campus' },
-  { type: 'text', value: 'Higher Ed' },
-  { type: 'image', value: '/logo.png', alt: 'Partner network' },
-  { type: 'text', value: 'Enterprise IT' },
-  { type: 'image', value: '/logo.png', alt: 'Partner school' },
-  { type: 'text', value: 'Telecom' },
-  { type: 'image', value: '/logo.png', alt: 'Partner institution' },
+  { type: 'text', value: 'EdTech' },
+  { type: 'text', value: 'Communication' },
+  { type: 'text', value: 'Telephony' },
+  { type: 'text', value: 'AI Research' },
+  { type: 'text', value: 'Healthcare AI' },
+  { type: 'text', value: 'FinTech AI' },
+  { type: 'text', value: 'Enterprise Automation' },
+  { type: 'text', value: 'Cybersecurity AI' },
+  { type: 'text', value: 'Data Analytics' },
+  { type: 'text', value: 'Government & Smart City' },
 ]
 
 export const PILLARS = [
@@ -74,81 +71,121 @@ export const PILLARS = [
   },
 ] as const
 
+export type SuitePillarId = 'edtech' | 'communication' | 'telephony' | 'research'
+
+export type ProductSuiteItemIcon =
+  | 'lms'
+  | 'cms'
+  | 'assessment'
+  | 'tutor'
+  | 'livechat'
+  | 'portal'
+  | 'notify'
+  | 'ivr'
+  | 'callAnalytics'
+  | 'pbx'
+  | 'nlp'
+  | 'responsible'
+  | 'publications'
+  | 'customAi'
+
+export interface ProductSuiteItem {
+  name: string
+  desc: string
+  icon: ProductSuiteItemIcon
+}
+
 export interface ProductSuiteColumn {
+  id: SuitePillarId
   title: string
   color: string
-  items: { name: string; desc: string }[]
+  items: ProductSuiteItem[]
 }
 
 export const PRODUCT_SUITE: ProductSuiteColumn[] = [
   {
+    id: 'edtech',
     title: 'Learning & EdTech',
-    color: '#7948FF',
+    color: '#5366AE',
     items: [
-      { name: 'Advanced LMS', desc: 'Adaptive learning, blended courses, faculty dashboards' },
-      { name: 'Smart CMS', desc: 'Institutional content publishing, portals, announcements' },
+      { name: 'Advanced LMS', desc: 'Adaptive learning, blended courses, faculty dashboards', icon: 'lms' },
+      { name: 'Smart CMS', desc: 'Institutional content publishing, portals, announcements', icon: 'cms' },
       {
         name: 'Assessments & Analytics',
         desc: 'Exams, grading automation, learner insights',
+        icon: 'assessment',
       },
-      { name: 'AI Tutor', desc: 'Personalized support for students, anytime' },
+      { name: 'AI Tutor', desc: 'Personalized support for students, anytime', icon: 'tutor' },
     ],
   },
   {
+    id: 'communication',
     title: 'Communication',
     color: '#60EBD1',
     items: [
       {
         name: 'AI Livechat',
         desc: 'Bilingual (Nepali + English) support for students, parents, staff',
+        icon: 'livechat',
       },
       {
         name: 'Parent Portal',
         desc: 'Real-time updates, transparent school communications',
+        icon: 'portal',
       },
       {
         name: 'Notification Engine',
         desc: 'SMS, email, and in-app messaging unified',
+        icon: 'notify',
       },
     ],
   },
   {
+    id: 'telephony',
     title: 'Telephony',
     color: '#A78BFA',
     items: [
       {
         name: 'AI Voice IVR',
         desc: 'Intelligent call routing for institutions and enterprises',
+        icon: 'ivr',
       },
       {
         name: 'Call Analytics',
         desc: 'Conversation logs, sentiment analysis, resolution tracking',
+        icon: 'callAnalytics',
       },
       {
         name: 'Cloud PBX',
         desc: 'Scalable, managed voice infrastructure for campuses',
+        icon: 'pbx',
       },
     ],
   },
   {
+    id: 'research',
     title: 'AI Research',
     color: '#F5A082',
     items: [
       {
         name: 'Nepali NLP Models',
         desc: 'Language processing built for Devanagari and Nepali context',
+        icon: 'nlp',
       },
       {
         name: 'Responsible AI Framework',
         desc: 'Ethical AI guidelines for Nepali institutions',
+        icon: 'responsible',
       },
       {
         name: 'Research Publications',
         desc: 'Open collaboration with universities and global partners',
+        icon: 'publications',
       },
       {
         name: 'Custom AI Development',
         desc: 'Bespoke models for enterprise and academic use cases',
+        icon: 'customAi',
       },
     ],
   },
@@ -192,7 +229,6 @@ export const SOLUTION_TABS = [
     title: 'Accelerate',
     body: 'Launch adaptive courses, automate assessments, and give teachers real-time learner visibility. AI Livechat and telephony keep every stakeholder connected without delays.',
     cta: 'Explore solutions',
-    image: '/images/lms_interface_ui_1768753626398.png',
   },
   {
     id: 'optimize',
@@ -200,7 +236,6 @@ export const SOLUTION_TABS = [
     title: 'Optimize',
     body: 'Unify HR, records, communications, and voice systems in one intelligent platform. Less fragmentation, more clarity.',
     cta: 'Explore platform',
-    image: '/images/iroms_dashboard_ui_1768753609690.png',
   },
   {
     id: 'strengthen',
@@ -208,11 +243,58 @@ export const SOLUTION_TABS = [
     title: 'Strengthen',
     body: "Research-backed AI, responsible data practices, and systems built for Nepal's infrastructure — so you grow without compromise.",
     cta: 'Explore research & trust',
-    image: '/images/livechat_ai_ui_1768753641553.png',
   },
 ] as const
 
 export type SolutionTabId = (typeof SOLUTION_TABS)[number]['id']
+
+export type ResearchArticleCategory = 'telephony' | 'omniai'
+
+export interface ResearchPublicArticleRef {
+  title: string
+  /** Venue, document type, or date — shown as the citation line */
+  reference: string
+  /** External journal / preprint, in-site news anchor, or PDF */
+  href?: string
+}
+
+/** Public-facing articles and reference materials grouped by research stream */
+export const RESEARCH_PUBLIC_ARTICLES_BY_TOPIC: Record<
+  ResearchArticleCategory,
+  ResearchPublicArticleRef[]
+> = {
+  telephony: [
+    {
+      title: 'Cloud PBX and AI IVR for campuses',
+      reference: 'Aitrix Labs field note, January 2026',
+      href: '/news#telephony-cloud-pbx-ai-ivr',
+    },
+    {
+      title: 'Call routing and IVR design patterns for schools and enterprises',
+      reference: 'Aitrix Labs engineering playbook (public excerpt), 2026',
+    },
+    {
+      title: 'Voice analytics and conversation quality in institutional contact centers',
+      reference: 'Technical brief, 2026',
+    },
+  ],
+  omniai: [
+    {
+      title: 'Research spotlight: Nepali NLP at scale',
+      reference: 'Aitrix Labs research note, February 2026',
+      href: '/news#omniai-nepali-nlp-at-scale',
+    },
+    {
+      title: 'Aitrix Labs expands AI communication for K–12 partners',
+      reference: 'Product & research update, March 2026',
+      href: '/news#omniai-bilingual-ai-communication',
+    },
+    {
+      title: 'Responsible deployment of unified AI assistants across campus systems',
+      reference: 'Responsible AI framework summary (public), 2026',
+    },
+  ],
+}
 
 export const FOOTER_COLUMNS = [
   {
@@ -231,21 +313,21 @@ export const FOOTER_COLUMNS = [
     heading: 'Research',
     links: [
       { label: 'Overview', to: '/research' },
-      { label: 'Nepali NLP', to: '/research' },
-      { label: 'Responsible AI', to: '/research' },
-      { label: 'Publications', to: '/research' },
+      { label: 'Telephony', to: '/research#telephony' },
+      { label: 'OmniAI', to: '/research#omniai' },
+      { label: 'Public articles', to: '/research#public-articles' },
       { label: 'Collaborate with us', href: 'mailto:info@aitrixlabs.com' },
     ],
   },
   {
     heading: 'Resources',
     links: [
-      { label: 'Insights', to: '/resources' },
-      { label: 'Events', to: '/resources' },
-      { label: 'Training', to: '/resources' },
+      { label: 'Insights', to: '/insights' },
+      { label: 'Events', to: '/events' },
+      { label: 'Training', to: '/training' },
       { label: 'Support', href: 'mailto:info@aitrixlabs.com' },
       { label: 'Case studies', to: '/resources' },
-      { label: 'Documentation', to: '/platform' },
+      { label: 'Documentation', to: '/docs' },
     ],
   },
   {
@@ -262,10 +344,10 @@ export const FOOTER_COLUMNS = [
   {
     heading: 'Company',
     links: [
-      { label: 'About', to: '/company' },
-      { label: 'Mission', to: '/company' },
-      { label: 'Careers', to: '/company' },
-      { label: 'News', to: '/company' },
+      { label: 'About', to: '/about' },
+      { label: 'Mission', to: '/about' },
+      { label: 'Careers', to: '/careers' },
+      { label: 'News', to: '/news' },
       { label: 'Research', to: '/research' },
       { label: 'Contact', to: '/contact' },
     ],

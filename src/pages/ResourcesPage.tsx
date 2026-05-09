@@ -10,10 +10,9 @@ export function ResourcesPage() {
         compact
         title="Insights, guides, and stories from the field"
         subtitle="Practical content for educators, IT leaders, and administrators making the most of AI-powered education."
-        primaryCta={{ label: 'Browse insights', href: 'https://aitrixlabs.com' }}
+        primaryCta={{ label: 'Browse insights', to: '/insights' }}
         secondaryCta={{ label: 'Talk to support', href: 'mailto:info@aitrixlabs.com' }}
       />
-      <Resources />
       <Resources />
       <CTABar
         title="Want to be featured?"

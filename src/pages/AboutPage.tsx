@@ -28,15 +28,15 @@ const VALUES: Feature[] = [
   },
 ]
 
-export function CompanyPage() {
+export function AboutPage() {
   return (
     <>
       <Hero
         compact
         title="The team behind Aitrix Labs"
         subtitle="An independent Nepali AI company building the products our institutions deserve."
-        primaryCta={{ label: 'Explore careers', href: 'mailto:info@aitrixlabs.com' }}
-        secondaryCta={{ label: 'Read mission', to: '/company' }}
+        primaryCta={{ label: 'Explore careers', to: '/careers' }}
+        secondaryCta={{ label: 'Latest news', to: '/news' }}
       />
       <FeatureGrid
         eyebrow="What we believe"
@@ -48,7 +48,7 @@ export function CompanyPage() {
       <CTABar
         title="Want to join us?"
         body="We're hiring engineers, researchers, and educators who want to ship the future of Nepali AI."
-        primaryCta={{ label: 'See open roles', href: 'mailto:info@aitrixlabs.com' }}
+        primaryCta={{ label: 'See open roles', to: '/careers' }}
         secondaryCta={{ label: 'Press & media', href: 'mailto:info@aitrixlabs.com' }}
       />
       <Newsletter />

@@ -25,7 +25,7 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: 'Services', to: '/services' },
   { label: 'Research', menu: 'research', to: '/research' },
   { label: 'Resources', menu: 'resources', to: '/resources' },
-  { label: 'Company', menu: 'company', to: '/company' },
+  { label: 'Company', menu: 'company', to: '/about' },
 ]
 
 export interface MegaItem {
@@ -42,28 +42,28 @@ export const SOLUTIONS_ITEMS: MegaItem[] = [
     title: 'EdTech',
     description:
       'AI-powered LMS, CMS, and learning analytics for schools and universities across Nepal.',
-    to: '/solutions',
+    to: '/solutions/edtech',
   },
   {
     Icon: SwapIcon,
     title: 'Communication',
     description:
       'AI Livechat and notification systems that connect students, parents, and staff in Nepali and English.',
-    to: '/solutions',
+    to: '/solutions/communication',
   },
   {
     Icon: PhoneIcon,
     title: 'Telephony',
     description:
       'Cloud PBX, AI IVR, and call analytics built for institutions and enterprises.',
-    to: '/solutions',
+    to: '/solutions/telephony',
   },
   {
     Icon: StarIcon,
     title: 'AI Research Tools',
     description:
       'Nepali NLP, custom models, and responsible AI frameworks for academic and enterprise teams.',
-    to: '/research',
+    to: '/solutions/ai-research',
   },
 ]
 
@@ -93,22 +93,20 @@ export interface SimpleLink {
 }
 
 export const RESEARCH_ITEMS: SimpleLink[] = [
-  { label: 'Nepali NLP', to: '/research' },
-  { label: 'Responsible AI', to: '/research' },
-  { label: 'Publications', to: '/research' },
-  { label: 'Collaborate', href: 'mailto:info@aitrixlabs.com' },
+  { label: 'Telephony', to: '/research#telephony' },
+  { label: 'OmniAI', to: '/research#omniai' },
 ]
 
 export const RESOURCES_ITEMS: SimpleLink[] = [
-  { label: 'Insights / Blog', to: '/resources' },
-  { label: 'Events', to: '/resources' },
-  { label: 'Docs', to: '/platform' },
-  { label: 'Training', to: '/resources' },
+  { label: 'Insights / Blog', to: '/insights' },
+  { label: 'Events', to: '/events' },
+  { label: 'Docs', to: '/docs' },
+  { label: 'Training', to: '/training' },
 ]
 
 export const COMPANY_ITEMS: SimpleLink[] = [
-  { label: 'About', to: '/company' },
-  { label: 'Careers', to: '/company' },
-  { label: 'News', to: '/company' },
+  { label: 'About', to: '/about' },
+  { label: 'Careers', to: '/careers' },
+  { label: 'News', to: '/news' },
   { label: 'Contact', to: '/contact' },
 ]

@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#6B57FF',
-          hover: '#5a46ee',
+          DEFAULT: '#5366AE',
+          hover: '#455a94',
         },
         ink: {
           50: '#f9fafb',
@@ -69,6 +69,10 @@ export default {
           '0%, 100%': { transform: 'translateX(-50%) translateY(0)' },
           '50%': { transform: 'translateX(-50%) translateY(6px)' },
         },
+        spinSlow: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         'cloud-a': 'cloudA 20s ease-in-out infinite alternate',
@@ -80,6 +84,7 @@ export default {
         'fade-up': 'fadeUp .3s ease',
         marquee: 'marquee 48s linear infinite',
         'bounce-y': 'bounceY 2s ease-in-out infinite',
+        'spin-slow': 'spinSlow 24s linear infinite',
       },
       backgroundImage: {
         'hero-sky': [
@@ -106,7 +111,7 @@ export default {
         'hero-overlay':
           'linear-gradient(to bottom, rgba(4,6,15,.55) 0%, rgba(4,6,15,.28) 35%, rgba(4,6,15,.32) 60%, rgba(4,6,15,.82) 100%), linear-gradient(to right, rgba(4,6,15,.35) 0%, transparent 40%, transparent 60%, rgba(4,6,15,.35) 100%)',
         'orb-purple':
-          'radial-gradient(circle, rgba(107,87,255,.28) 0%, rgba(139,92,246,.14) 30%, rgba(59,130,246,.06) 60%, transparent 75%)',
+          'radial-gradient(circle, rgba(83,102,174,.28) 0%, rgba(83,102,174,.14) 30%, rgba(59,130,246,.06) 60%, transparent 75%)',
         'orb-blue':
           'radial-gradient(circle, rgba(56,189,248,.18) 0%, rgba(37,99,235,.08) 50%, transparent 75%)',
         'promo-card':
@@ -121,7 +126,7 @@ export default {
         mega: '0 24px 48px rgba(0,0,0,.13)',
         hero: '0 4px 24px rgba(0,0,0,.3)',
         'hero-hover': '0 8px 32px rgba(0,0,0,.4)',
-        pill: '0 2px 8px rgba(107,87,255,.4)',
+        pill: '0 2px 8px rgba(83,102,174,.4)',
       },
     },
   },

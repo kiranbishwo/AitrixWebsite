@@ -72,9 +72,9 @@ export function ScrollIcon(props: IconProps) {
 export function AitrixGlyph(props: IconProps) {
   return (
     <svg viewBox="0 0 18 18" fill="none" {...props}>
-      <rect x={6} y={1} width={6} height={9} rx={1} fill="#6B57FF" />
-      <rect x={1} y={7} width={6} height={9} rx={1} fill="#9c8fff" />
-      <rect x={11} y={7} width={6} height={9} rx={1} fill="#9c8fff" />
+      <rect x={6} y={1} width={6} height={9} rx={1} fill="#5366AE" />
+      <rect x={1} y={7} width={6} height={9} rx={1} fill="#8B9ACD" />
+      <rect x={11} y={7} width={6} height={9} rx={1} fill="#8B9ACD" />
     </svg>
   )
 }
