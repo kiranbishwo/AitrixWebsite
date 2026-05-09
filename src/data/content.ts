@@ -115,6 +115,7 @@ export const PRODUCT_SUITE: ProductSuiteColumn[] = [
         desc: 'Exams, grading automation, learner insights',
         icon: 'assessment',
       },
+      { name: 'I-ROMS', desc: 'Records, HR, attendance, and compliance workflows', icon: 'portal' },
       { name: 'AI Tutor', desc: 'Personalized support for students, anytime', icon: 'tutor' },
     ],
   },
@@ -212,13 +213,13 @@ export const RESOURCES_HIGHLIGHTS = [
   },
   {
     image: '/images/livechat_ai_ui_1768753641553.png',
-    title: 'AI telephony for campuses',
-    description: 'How voice AI reduces call loads and improves response times for schools.',
+    title: 'AI Livechat for campus support',
+    description: 'How bilingual chat support reduces repetitive questions and improves response times.',
   },
   {
     image: '/images/cms_dashboard_ui_1768753670312.png',
-    title: 'Research spotlight: Nepali NLP',
-    description: 'How Aitrix Labs is building language models that truly understand Nepal.',
+    title: 'Smart CMS for campus communication',
+    description: 'How Aitrix CMS keeps announcements, program pages, and institutional updates aligned.',
   },
 ]
 

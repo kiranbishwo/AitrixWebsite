@@ -1,6 +1,6 @@
 import { Navigate, useParams, Link } from 'react-router-dom'
 import educationBanner from '../assets/banners/education.svg'
-import iromBanner from '../assets/banners/irom.svg'
+import omniBanner from '../assets/banners/omnibanner.svg'
 import researchBanner from '../assets/banners/research.svg'
 import servicesBanner from '../assets/banners/services.svg'
 import {
@@ -127,7 +127,7 @@ const PILLAR_CONFIG: Record<SolutionSlug, PillarConfig> = {
     heroTitle: 'Voice AI & telephony for campuses',
     heroSubtitle:
       'Cloud PBX, AI IVR, and call analytics built for institutions and enterprises — fewer dropped threads, clearer reporting, less manual load.',
-    bgImage: iromBanner,
+    bgImage: omniBanner,
     eyebrow: 'By solution',
     gridTitle: 'Reliable voice infrastructure',
     gridBody:

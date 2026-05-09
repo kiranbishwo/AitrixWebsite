@@ -1,4 +1,4 @@
-import platformBanner from '../assets/banners/plartform.svg'
+import platformBanner from '../assets/banners/platform.svg'
 import {
   GridIcon,
   ListIcon,

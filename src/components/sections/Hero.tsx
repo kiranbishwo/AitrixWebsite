@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import { ArrowRightIcon, PlayCircleIcon, ScrollIcon } from '../icons/Icons'
 import { LinkButton } from '../ui/Button'
 import landingBanner from '../../assets/banners/landing.svg'
-import iromBanner from '../../assets/banners/irom.svg'
 
 interface HeroProps {
   title: ReactNode
@@ -24,7 +23,7 @@ export function Hero({
   secondaryCta,
   showScrollIndicator = false,
   compact = false,
-  bgImage = iromBanner,
+  bgImage = landingBanner,
   bgImageAlt = '',
 }: HeroProps) {
   const useImage = Boolean(bgImage)
