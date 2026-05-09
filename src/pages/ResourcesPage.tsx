@@ -8,7 +8,6 @@ export function ResourcesPage() {
     <>
       <Hero
         compact
-        pill="Resources"
         title="Insights, guides, and stories from the field"
         subtitle="Practical content for educators, IT leaders, and administrators making the most of AI-powered education."
         primaryCta={{ label: 'Browse insights', href: 'https://aitrixlabs.com' }}

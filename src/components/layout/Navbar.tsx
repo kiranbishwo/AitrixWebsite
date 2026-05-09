@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronDownIcon, GlobeIcon, MailIcon, PhoneIcon } from '../icons/Icons'
+import { ArrowRightIcon, ChevronDownIcon, MailIcon } from '../icons/Icons'
 import { PRIMARY_NAV, type MenuKey } from '../../data/nav'
 import { useScrolled } from '../../hooks/useScrolled'
 import { useEscape } from '../../hooks/useEscape'
-import { MegaMenus } from './MegaMenu'
+import { NavDropdownPanel } from './MegaMenu'
 import { MobileMenu } from './MobileMenu'
 
 export function Navbar() {
@@ -77,23 +77,35 @@ export function Navbar() {
               if (item.menu) {
                 const isOpen = activeMenu === item.menu
                 return (
-                  <button
-                    key={item.label}
-                    type="button"
-                    onClick={() => toggle(item.menu!)}
-                    className={`flex items-center gap-1 whitespace-nowrap rounded px-3 py-2 text-sm font-medium transition-colors ${
-                      isOpen
-                        ? 'bg-ink-100 text-ink-800'
-                        : 'text-ink-600 hover:bg-ink-100 hover:text-ink-800'
-                    }`}
-                  >
-                    {item.label}
-                    <ChevronDownIcon
-                      className={`h-3 w-3 shrink-0 text-ink-400 transition-transform ${
-                        isOpen ? 'rotate-180' : ''
+                  <div key={item.label} className="relative inline-flex flex-col items-start">
+                    <button
+                      type="button"
+                      onClick={() => toggle(item.menu!)}
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                      className={`flex items-center gap-1 whitespace-nowrap rounded px-3 py-2 text-sm font-medium transition-colors ${
+                        isOpen
+                          ? 'bg-ink-100 text-ink-800'
+                          : 'text-ink-600 hover:bg-ink-100 hover:text-ink-800'
                       }`}
-                    />
-                  </button>
+                    >
+                      {item.label}
+                      <ChevronDownIcon
+                        className={`h-3 w-3 shrink-0 text-ink-400 transition-transform ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div
+                        className="absolute left-0 top-full z-[200] pt-1"
+                        role="menu"
+                        aria-label={`${item.label} menu`}
+                      >
+                        <NavDropdownPanel menu={item.menu} />
+                      </div>
+                    )}
+                  </div>
                 )
               }
               return (
@@ -110,26 +122,19 @@ export function Navbar() {
 
           <div className="ml-auto flex shrink-0 items-center gap-2">
             <a
-              href="tel:+9779800000000"
-              className="hidden items-center gap-1.5 rounded px-3 py-1.5 text-[13px] font-medium text-ink-600 transition-colors hover:bg-ink-100 sm:flex"
-            >
-              <PhoneIcon className="h-3.5 w-3.5" />
-              Call us
-            </a>
-            <a
               href="mailto:info@aitrixlabs.com"
               className="hidden items-center gap-1.5 whitespace-nowrap rounded border border-ink-300 bg-white px-3.5 py-1.5 text-[13px] font-medium text-ink-800 transition-colors hover:border-ink-400 hover:bg-ink-50 sm:flex"
             >
               <MailIcon className="h-3.5 w-3.5" />
               Email
             </a>
-            <a
-              href="https://aitrixlabs.com"
-              className="flex items-center gap-1.5 whitespace-nowrap rounded bg-ink-900 px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-black"
+            <Link
+              to="/contact"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded bg-primary px-4 py-2 text-[13px] font-semibold text-white shadow-pill transition-colors hover:bg-primary-hover"
             >
-              <GlobeIcon className="h-3.5 w-3.5" />
               Get started
-            </a>
+              <ArrowRightIcon className="h-3.5 w-3.5" />
+            </Link>
 
             <button
               type="button"
@@ -145,7 +150,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      <MegaMenus active={activeMenu} />
       <MobileMenu open={mobileOpen} onClose={closeMobile} />
     </>
   )

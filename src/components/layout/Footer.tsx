@@ -81,15 +81,15 @@ export function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-ink-900 pt-4">
           <div className="flex flex-wrap gap-4 text-xs text-ink-500">
             <span>© 2026 Aitrix Labs. All rights reserved.</span>
-            <a href="https://aitrixlabs.com" className="hover:text-white">
+            <Link to="/privacy" className="hover:text-white">
               Privacy
-            </a>
-            <a href="https://aitrixlabs.com" className="hover:text-white">
+            </Link>
+            <Link to="/terms" className="hover:text-white">
               Terms
-            </a>
-            <a href="mailto:info@aitrixlabs.com" className="hover:text-white">
+            </Link>
+            <Link to="/security" className="hover:text-white">
               Security
-            </a>
+            </Link>
           </div>
           <select
             className="rounded border border-ink-900 bg-ink-900/60 px-2.5 py-1 text-xs text-ink-400"

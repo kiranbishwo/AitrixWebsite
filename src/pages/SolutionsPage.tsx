@@ -1,3 +1,4 @@
+import educationBanner from '../assets/banners/education.svg'
 import { CTABar } from '../components/sections/CTABar'
 import { FeatureGrid, type Feature } from '../components/sections/FeatureGrid'
 import { Hero } from '../components/sections/Hero'
@@ -46,11 +47,11 @@ export function SolutionsPage() {
     <>
       <Hero
         compact
-        pill="Solutions"
         title={<>Solutions built for Nepal&apos;s institutions</>}
         subtitle="From K–12 to higher education and enterprise, our AI products bring clarity to operations and outcomes."
         primaryCta={{ label: 'Talk to Aitrix', href: 'mailto:info@aitrixlabs.com' }}
         secondaryCta={{ label: 'Browse Products', to: '/products' }}
+        bgImage={educationBanner}
       />
       <FeatureGrid
         eyebrow="By need"

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { CloseIcon } from '../icons/Icons'
+import { ArrowRightIcon, CloseIcon } from '../icons/Icons'
 import { PRIMARY_NAV } from '../../data/nav'
 
 interface MobileMenuProps {
@@ -50,26 +50,20 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
       <div className="mt-6 flex flex-col gap-2.5">
         <a
-          href="tel:+9779800000000"
-          className="flex items-center justify-center gap-1.5 rounded border border-ink-300 bg-white px-4 py-3 text-sm font-medium text-ink-800 hover:bg-ink-50"
-          onClick={onClose}
-        >
-          Call us
-        </a>
-        <a
           href="mailto:info@aitrixlabs.com"
           className="flex items-center justify-center gap-1.5 rounded border border-ink-300 bg-white px-4 py-3 text-sm font-medium text-ink-800 hover:bg-ink-50"
           onClick={onClose}
         >
-          Email
+          Email us
         </a>
-        <a
-          href="https://aitrixlabs.com"
-          className="flex items-center justify-center gap-1.5 rounded bg-ink-900 px-4 py-3.5 text-sm font-semibold text-white hover:bg-black"
+        <Link
+          to="/contact"
           onClick={onClose}
+          className="flex items-center justify-center gap-1.5 rounded bg-primary px-4 py-3.5 text-sm font-semibold text-white shadow-pill hover:bg-primary-hover"
         >
           Get started
-        </a>
+          <ArrowRightIcon className="h-4 w-4" />
+        </Link>
       </div>
     </div>
   )

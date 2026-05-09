@@ -1,3 +1,4 @@
+import researchBanner from '../assets/banners/research.svg'
 import { BookIcon, ShieldIcon, StarSparkIcon } from '../components/icons/Icons'
 import { CTABar } from '../components/sections/CTABar'
 import { FeatureGrid, type Feature } from '../components/sections/FeatureGrid'
@@ -33,11 +34,11 @@ export function ResearchPage() {
     <>
       <Hero
         compact
-        pill="Research"
         title={<>Advancing Nepal&apos;s AI frontier</>}
         subtitle="Our research division builds the foundations behind every Aitrix product — and the broader Nepali AI ecosystem."
         primaryCta={{ label: 'Read papers', href: 'https://aitrixlabs.com' }}
         secondaryCta={{ label: 'Collaborate', href: 'mailto:info@aitrixlabs.com' }}
+        bgImage={researchBanner}
       />
       <FeatureGrid
         eyebrow="Areas"

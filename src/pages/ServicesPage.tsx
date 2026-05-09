@@ -1,3 +1,4 @@
+import servicesBanner from '../assets/banners/services.svg'
 import { BookIcon, ClockIcon, GridIcon, ShieldIcon } from '../components/icons/Icons'
 import { CTABar } from '../components/sections/CTABar'
 import { FastDeployment } from '../components/sections/FastDeployment'
@@ -40,11 +41,11 @@ export function ServicesPage() {
     <>
       <Hero
         compact
-        pill="Services"
         title="A team that ships with you"
         subtitle="Aitrix services go beyond software — we bring deployment, training, and ongoing operations expertise."
         primaryCta={{ label: 'Plan a rollout', href: 'mailto:info@aitrixlabs.com' }}
         secondaryCta={{ label: 'Read playbook', to: '/resources' }}
+        bgImage={servicesBanner}
       />
       <FeatureGrid
         eyebrow="What we do"

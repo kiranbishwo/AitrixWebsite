@@ -1,3 +1,4 @@
+import platformBanner from '../assets/banners/plartform.svg'
 import {
   GridIcon,
   ListIcon,
@@ -55,11 +56,11 @@ export function PlatformPage() {
     <>
       <Hero
         compact
-        pill="Platform"
         title="A platform built for Nepal's most ambitious teams"
         subtitle="Open, extensible, and secure. The backbone behind every Aitrix product and every institution we serve."
         primaryCta={{ label: 'Read the docs', href: 'https://aitrixlabs.com' }}
         secondaryCta={{ label: 'Become a partner', href: 'mailto:info@aitrixlabs.com' }}
+        bgImage={platformBanner}
       />
       <FeatureGrid
         eyebrow="Capabilities"

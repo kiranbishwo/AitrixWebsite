@@ -9,7 +9,6 @@ export function ProductsPage() {
     <>
       <Hero
         compact
-        pill="Products"
         title="One platform. Every part of your campus."
         subtitle="LMS, CMS, AI Livechat, AI Telephony, I-ROMS, analytics, and more — designed to work together."
         primaryCta={{ label: 'Request a demo', href: 'mailto:info@aitrixlabs.com' }}

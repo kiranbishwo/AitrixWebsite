@@ -33,7 +33,6 @@ export function CompanyPage() {
     <>
       <Hero
         compact
-        pill="Company"
         title="The team behind Aitrix Labs"
         subtitle="An independent Nepali AI company building the products our institutions deserve."
         primaryCta={{ label: 'Explore careers', href: 'mailto:info@aitrixlabs.com' }}

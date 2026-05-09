@@ -1,50 +1,31 @@
 import type { ReactNode } from 'react'
 import {
-  GraphIcon,
-  SwapIcon,
-  StackIcon,
-  StarIcon,
-  DocIcon,
-  ShieldIcon,
-  PlayIcon,
-  GridIcon,
-  ListIcon,
-  PartnerIcon,
   BookIcon,
-  StarSparkIcon,
-  MailBoxIcon,
-  FileIcon,
-  BriefcaseIcon,
-  NetworkIcon,
-  LockIcon,
-  ClockIcon,
-  HelpIcon,
+  PhoneIcon,
+  StarIcon,
+  SwapIcon,
 } from '../components/icons/Icons'
 
-export type MenuKey =
-  | 'solutions'
-  | 'products'
-  | 'developers'
-  | 'resources'
-  | 'research'
-  | 'company'
+export type MenuKey = 'solutions' | 'research' | 'resources' | 'company'
 
 export interface NavLink {
   label: string
   to?: string
   href?: string
   menu?: MenuKey
-  external?: boolean
 }
 
+/**
+ * Top-level nav items. When `menu` is set, the desktop renders a dropdown;
+ * `to` is still used as the destination on mobile (and as a fallback link
+ * target if the dropdown is bypassed).
+ */
 export const PRIMARY_NAV: NavLink[] = [
-  { label: 'Solutions', menu: 'solutions' },
-  { label: 'Products', menu: 'products' },
+  { label: 'Solutions', menu: 'solutions', to: '/solutions' },
   { label: 'Services', to: '/services' },
-  { label: 'Platform', menu: 'developers' },
-  { label: 'Resources', menu: 'resources' },
-  { label: 'Research', menu: 'research' },
-  { label: 'Company', menu: 'company' },
+  { label: 'Research', menu: 'research', to: '/research' },
+  { label: 'Resources', menu: 'resources', to: '/resources' },
+  { label: 'Company', menu: 'company', to: '/company' },
 ]
 
 export interface MegaItem {
@@ -57,139 +38,77 @@ export interface MegaItem {
 
 export const SOLUTIONS_ITEMS: MegaItem[] = [
   {
-    Icon: GraphIcon,
-    title: 'Unified EdTech operations',
+    Icon: BookIcon,
+    title: 'EdTech',
     description:
-      'Bring academics, administration, and communications together on one AI-ready platform for schools and universities',
+      'AI-powered LMS, CMS, and learning analytics for schools and universities across Nepal.',
     to: '/solutions',
   },
   {
     Icon: SwapIcon,
-    title: 'Personalized teaching at scale',
+    title: 'Communication',
     description:
-      'Use adaptive learning, analytics, and automation so every learner progresses with guidance that fits their pace',
+      'AI Livechat and notification systems that connect students, parents, and staff in Nepali and English.',
     to: '/solutions',
   },
   {
-    Icon: StackIcon,
-    title: 'Smarter campus efficiency',
+    Icon: PhoneIcon,
+    title: 'Telephony',
     description:
-      'Digitize routine work—from scheduling to records—so teams spend less time on paperwork and more on students',
+      'Cloud PBX, AI IVR, and call analytics built for institutions and enterprises.',
     to: '/solutions',
   },
   {
     Icon: StarIcon,
-    title: 'Trustworthy AI for education',
+    title: 'AI Research Tools',
     description:
-      'Deploy assistants and automation with clear oversight so institutions stay compliant and in control',
-    to: '/solutions',
+      'Nepali NLP, custom models, and responsible AI frameworks for academic and enterprise teams.',
+    to: '/research',
   },
 ]
 
-export interface MegaSubItem {
+export interface ExploreLink {
   label: string
-  hint?: string
-  swatch?: string
-  to?: string
-  href?: string
-  highlight?: boolean
+  hint: string
+  to: string
 }
 
-export const PRODUCTS_TEACHING: MegaSubItem[] = [
+export const SOLUTIONS_EXPLORE: ExploreLink[] = [
   {
-    label: 'Advanced LMS',
-    hint: 'Personalized courses, assessments, and learner analytics',
-    swatch: '#7948FF',
-    highlight: true,
+    label: 'Products',
+    hint: 'Browse the full Aitrix product suite',
     to: '/products',
   },
   {
-    label: 'Smart CMS',
-    hint: 'Publish and manage institutional content with ease',
-    swatch: '#00A4E4',
-    to: '/products',
-  },
-  {
-    label: 'AI Livechat',
-    hint: '24/7 assistance for students, parents, and staff',
-    swatch: '#60EBD1',
-    to: '/products',
-  },
-  {
-    label: 'AI Telephony',
-    hint: 'IVR, call analytics, and cloud PBX for campuses',
-    swatch: '#A78BFA',
-    to: '/products',
+    label: 'Platform',
+    hint: 'APIs, security, and deployment',
+    to: '/platform',
   },
 ]
 
-export const PRODUCTS_OPERATIONS: MegaSubItem[] = [
-  {
-    label: 'I-ROMS',
-    hint: 'Integrated records and manpower for institutions',
-    swatch: '#FFD814',
-    to: '/products',
-  },
-  {
-    label: 'Analytics & reporting',
-    hint: 'Dashboards for outcomes and operations',
-    swatch: '#EC4899',
-    to: '/products',
-  },
-  {
-    label: 'Implementation support',
-    hint: 'Onboarding tailored to your institution',
-    swatch: '#FFD814',
-    to: '/products',
-  },
-  {
-    label: 'Secure cloud delivery',
-    hint: 'Reliable hosting options for education workloads',
-    swatch: '#F5A082',
-    to: '/products',
-  },
-]
+export interface SimpleLink {
+  label: string
+  to?: string
+  href?: string
+}
 
-export const PLATFORM_ITEMS: { label: string; Icon: MegaItem['Icon']; to: string }[] = [
-  { label: 'Overview', Icon: DocIcon, to: '/platform' },
-  { label: 'Security', Icon: ShieldIcon, to: '/platform' },
-  { label: 'Deployment', Icon: PlayIcon, to: '/platform' },
-  { label: 'APIs', Icon: GridIcon, to: '/platform' },
-  { label: 'Roadmap', Icon: ListIcon, to: '/platform' },
-  { label: 'Become a partner', Icon: PartnerIcon, to: '/platform' },
-]
-
-export const RESOURCES_PRIMARY: { label: string; Icon: MegaItem['Icon']; to: string }[] = [
-  { label: 'Educator training', Icon: BookIcon, to: '/resources' },
-  { label: 'Resource library', Icon: StarSparkIcon, to: '/resources' },
-  { label: 'Insights & updates', Icon: MailBoxIcon, to: '/resources' },
-  { label: 'Institution stories', Icon: BookIcon, to: '/resources' },
-  { label: 'EdTech guides', Icon: FileIcon, to: '/resources' },
-  { label: 'Partner resources', Icon: BriefcaseIcon, to: '/resources' },
-]
-
-export const RESOURCES_SECONDARY: { label: string; Icon: MegaItem['Icon']; to?: string; href?: string }[] = [
-  { label: 'Technology partners', Icon: NetworkIcon, to: '/resources' },
-  { label: 'Schools & universities', Icon: LockIcon, to: '/resources' },
-  { label: 'Leadership briefings', Icon: StarSparkIcon, to: '/resources' },
-  { label: 'Implementation & success', Icon: ClockIcon, to: '/resources' },
-  { label: 'Help center', Icon: HelpIcon, href: 'mailto:info@aitrixlabs.com' },
-]
-
-export const RESEARCH_ITEMS: { label: string; to?: string; href?: string }[] = [
-  { label: 'Overview', to: '/research' },
+export const RESEARCH_ITEMS: SimpleLink[] = [
   { label: 'Nepali NLP', to: '/research' },
   { label: 'Responsible AI', to: '/research' },
   { label: 'Publications', to: '/research' },
-  { label: 'Collaborate with us', href: 'mailto:info@aitrixlabs.com' },
+  { label: 'Collaborate', href: 'mailto:info@aitrixlabs.com' },
 ]
 
-export const COMPANY_ITEMS: { label: string; to?: string; href?: string }[] = [
-  { label: 'About Aitrix Labs', to: '/company' },
-  { label: 'Our mission', to: '/company' },
+export const RESOURCES_ITEMS: SimpleLink[] = [
+  { label: 'Insights / Blog', to: '/resources' },
+  { label: 'Events', to: '/resources' },
+  { label: 'Docs', to: '/platform' },
+  { label: 'Training', to: '/resources' },
+]
+
+export const COMPANY_ITEMS: SimpleLink[] = [
+  { label: 'About', to: '/company' },
   { label: 'Careers', to: '/company' },
-  { label: 'Events & webinars', to: '/company' },
-  { label: 'Research & innovation', to: '/research' },
-  { label: 'Contact', href: 'mailto:info@aitrixlabs.com' },
-  { label: 'Partner with us', to: '/company' },
+  { label: 'News', to: '/company' },
+  { label: 'Contact', to: '/contact' },
 ]

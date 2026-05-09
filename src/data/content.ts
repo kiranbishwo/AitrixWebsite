@@ -267,7 +267,7 @@ export const FOOTER_COLUMNS = [
       { label: 'Careers', to: '/company' },
       { label: 'News', to: '/company' },
       { label: 'Research', to: '/research' },
-      { label: 'Contact', href: 'mailto:info@aitrixlabs.com' },
+      { label: 'Contact', to: '/contact' },
     ],
   },
 ]
