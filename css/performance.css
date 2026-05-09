@@ -1,0 +1,155 @@
+/* ============================================
+   AITRIX LABS - PERFORMANCE OPTIMIZATIONS
+   CSS optimizations for smooth animations
+   ============================================ */
+
+/* GPU Acceleration for animated elements */
+.magnetic,
+.parallax-element,
+.image-reveal,
+.text-reveal,
+.stagger-card > *,
+.bento-card,
+.card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize will-change usage */
+.magnetic:hover,
+.parallax-element,
+.image-reveal,
+.text-reveal {
+    will-change: transform;
+}
+
+/* Remove will-change after animation */
+.magnetic:not(:hover) {
+    will-change: auto;
+}
+
+/* Smooth scrolling optimization */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize font rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Optimize image rendering */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Reduce repaints on scroll */
+.scroll-section {
+    contain: layout style paint;
+}
+
+/* Optimize transforms */
+[class*="animate-"],
+[class*="reveal"],
+[class*="scroll-"] {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+.reveal.active,
+.reveal-scroll.active {
+    will-change: auto;
+}
+
+/* Optimize particle animations */
+.particle,
+.particle-ring,
+.floating-orb {
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style paint;
+}
+
+/* Optimize gradients */
+.gradient-text,
+.gradient-scroll {
+    will-change: background-position;
+}
+
+/* Content visibility for off-screen sections */
+@media (prefers-reduced-motion: no-preference) {
+    .section:not(.scroll-section) {
+        content-visibility: auto;
+        contain-intrinsic-size: 500px;
+    }
+}
+
+/* Optimize transitions */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .magnetic,
+    .parallax-element {
+        transform: none !important;
+    }
+}
+
+/* Optimize hover states */
+@media (hover: hover) {
+    .hover-lift:hover,
+    .hover-scale:hover,
+    .hover-glow:hover {
+        will-change: transform, box-shadow;
+    }
+}
+
+/* Optimize for mobile */
+@media (max-width: 768px) {
+    .particle-container,
+    #particles-js {
+        display: none; /* Hide particles on mobile for performance */
+    }
+    
+    .blob-morph {
+        opacity: 0.1; /* Reduce opacity on mobile */
+    }
+}
+
+/* Layer promotion for frequently animated elements */
+.navbar,
+.scroll-progress,
+.mobile-menu {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+/* Optimize form inputs */
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    will-change: border-color, box-shadow;
+}
+
+.form-input:not(:focus),
+.form-textarea:not(:focus),
+.form-select:not(:focus) {
+    will-change: auto;
+}

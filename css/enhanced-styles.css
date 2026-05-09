@@ -1,0 +1,716 @@
+/* ============================================
+   AITRIX LABS - ENHANCED BEAUTIFUL STYLES
+   Professional, elegant, and full-featured
+   ============================================ */
+
+/* ===== Elegant Slow Animations ===== */
+@keyframes elegantFloat {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    33% {
+        transform: translateY(-30px) translateX(10px);
+    }
+    66% {
+        transform: translateY(-15px) translateX(-10px);
+    }
+}
+
+/* Slower float for elegance */
+.elegant-float {
+    animation: elegantFloat 10s ease-in-out infinite;
+}
+
+@keyframes elegantPulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* Slower pulse for elegance */
+.elegant-pulse {
+    animation: elegantPulse 5s ease-in-out infinite;
+}
+
+@keyframes elegantRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Slower rotation for elegance */
+.elegant-rotate {
+    animation: elegantRotate 40s linear infinite;
+}
+
+@keyframes elegantShimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Slower shimmer for elegance */
+.elegant-shimmer {
+    animation: elegantShimmer 4s ease-in-out infinite;
+}
+
+@keyframes elegantFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes elegantSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Elegant animation classes with slower timing */
+.elegant-float {
+    animation: elegantFloat 8s ease-in-out infinite;
+}
+
+.elegant-pulse {
+    animation: elegantPulse 4s ease-in-out infinite;
+}
+
+.elegant-rotate {
+    animation: elegantRotate 30s linear infinite;
+}
+
+.elegant-shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: elegantShimmer 3s ease-in-out infinite;
+}
+
+/* ===== Beautiful Glass Morphism ===== */
+.glass-elegant {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark-elegant {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Beautiful Gradients ===== */
+.gradient-elegant-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+}
+
+.gradient-elegant-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+}
+
+.gradient-elegant-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Slower gradient animations for elegance */
+.gradient-elegant-1 {
+    animation: gradientShift 12s ease infinite;
+}
+
+.gradient-elegant-2 {
+    animation: gradientShift 15s ease infinite;
+}
+
+.gradient-elegant-3 {
+    animation: gradientShift 18s ease infinite;
+}
+
+/* ===== Beautiful Card Styles ===== */
+.card-elegant {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-elegant::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-elegant:hover::before {
+    transform: scaleX(1);
+}
+
+.card-elegant:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Beautiful Button Styles ===== */
+.btn-elegant {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 
+        0 10px 25px -5px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-elegant::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-elegant:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-elegant:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 35px -5px rgba(102, 126, 234, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* ===== Beautiful Text Effects ===== */
+.text-glow {
+    text-shadow: 
+        0 0 10px rgba(102, 126, 234, 0.5),
+        0 0 20px rgba(102, 126, 234, 0.3),
+        0 0 30px rgba(102, 126, 234, 0.2);
+}
+
+.text-gradient-elegant {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 8s ease infinite;
+}
+
+/* ===== Beautiful Hover Effects ===== */
+.hover-lift-elegant {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift-elegant:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.hover-glow-elegant {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow-elegant:hover {
+    box-shadow: 
+        0 0 20px rgba(102, 126, 234, 0.4),
+        0 0 40px rgba(118, 75, 162, 0.3),
+        0 0 60px rgba(240, 147, 251, 0.2);
+}
+
+/* ===== Beautiful Section Dividers ===== */
+.section-divider-elegant {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    border-radius: 2px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-divider-elegant::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: elegantShimmer 3s ease-in-out infinite;
+}
+
+/* ===== Beautiful Testimonial Cards ===== */
+.testimonial-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 120px;
+    color: rgba(102, 126, 234, 0.1);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== Beautiful Feature Icons ===== */
+.feature-icon-elegant {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 25px -5px rgba(102, 126, 234, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.feature-icon-elegant::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.feature-icon-elegant:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-icon-elegant:hover::after {
+    opacity: 1;
+}
+
+/* ===== Beautiful Stats Display ===== */
+.stat-card-elegant {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.stat-card-elegant::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    animation: elegantRotate 20s linear infinite;
+}
+
+.stat-card-elegant:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 
+        0 20px 25px -5px rgba(102, 126, 234, 0.3),
+        0 10px 10px -5px rgba(118, 75, 162, 0.2);
+}
+
+/* ===== Beautiful Navigation ===== */
+.navbar-elegant {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-elegant.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Beautiful Form Inputs ===== */
+.input-elegant {
+    background: white;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+}
+
+.input-elegant:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 
+        0 0 0 4px rgba(102, 126, 234, 0.1),
+        0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+/* ===== Beautiful Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #f093fb);
+}
+
+/* ===== Beautiful Loading States ===== */
+.skeleton-elegant {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    background-size: 200% 100%;
+    animation: elegantShimmer 2s ease-in-out infinite;
+    border-radius: 8px;
+}
+
+/* ===== Beautiful Badge Styles ===== */
+.badge-elegant {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #667eea;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge-elegant:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.2);
+}
+
+/* ===== Beautiful Section Backgrounds ===== */
+.section-bg-elegant {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-bg-elegant::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(240, 147, 251, 0.05) 0%, transparent 50%);
+    background-size: 200% 200%;
+    animation: gradientShift 20s ease infinite; /* Slower for elegance */
+    pointer-events: none;
+}
+
+/* ===== Beautiful Cursor Effects ===== */
+.cursor-glow {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.5), transparent);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out;
+    mix-blend-mode: difference;
+}
+
+/* ===== Beautiful Image Overlays ===== */
+.image-overlay-elegant {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.image-overlay-elegant::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(102, 126, 234, 0.1) 0%,
+        rgba(118, 75, 162, 0.1) 50%,
+        rgba(240, 147, 251, 0.1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-overlay-elegant:hover::after {
+    opacity: 1;
+}
+
+/* ===== Beautiful Typography ===== */
+.heading-elegant {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== Beautiful Animations Timing ===== */
+.animate-slow-elegant {
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slower-elegant {
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slowest-elegant {
+    animation-duration: 5s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Beautiful Progress Bars ===== */
+.progress-bar-elegant {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    border-radius: 4px;
+    transition: width 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: elegantShimmer 2s ease-in-out infinite;
+}
+
+/* ===== Beautiful Image Zoom ===== */
+.image-zoom-elegant {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.image-zoom-elegant:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Beautiful Section Transitions ===== */
+.elegant-reveal {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ===== Beautiful Hover States ===== */
+.hover-scale-elegant {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale-elegant:hover {
+    transform: scale(1.05);
+}
+
+.hover-rotate-elegant {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-rotate-elegant:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* ===== Beautiful Responsive Adjustments ===== */
+@media (max-width: 768px) {
+    .card-elegant,
+    .testimonial-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .feature-icon-elegant {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .blob-morph {
+        opacity: 0.1 !important;
+        filter: blur(60px) !important;
+    }
+}
+
+/* ===== Beautiful Loading States ===== */
+.loading-elegant {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-elegant::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: elegantShimmer 2s ease-in-out infinite;
+}
+
+/* ===== Beautiful Focus States ===== */
+.input-elegant:focus,
+.textarea-elegant:focus,
+.select-elegant:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 
+        0 0 0 4px rgba(102, 126, 234, 0.1),
+        0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+/* ===== Beautiful Selection ===== */
+::selection {
+    background: rgba(102, 126, 234, 0.3);
+    color: #1a202c;
+}
+
+::-moz-selection {
+    background: rgba(102, 126, 234, 0.3);
+    color: #1a202c;
+}
