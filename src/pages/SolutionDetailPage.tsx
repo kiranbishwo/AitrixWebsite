@@ -2,17 +2,17 @@ import { Navigate, useParams, Link } from 'react-router-dom'
 import educationBanner from '../assets/banners/education.svg'
 import omniBanner from '../assets/banners/omnibanner.svg'
 import researchBanner from '../assets/banners/research.svg'
-import servicesBanner from '../assets/banners/services.svg'
+import pameruLogo from '../assets/pameru_logo.svg'
 import {
   ArrowRightIcon,
   BookIcon,
   DocIcon,
   GraphIcon,
   GridIcon,
-  ListIcon,
   MailBoxIcon,
   NetworkIcon,
   PhoneIcon,
+  ShieldIcon,
   StackIcon,
   StarIcon,
   StarSparkIcon,
@@ -35,8 +35,12 @@ function isSolutionSlug(value: string | undefined): value is SolutionSlug {
 interface PillarConfig {
   heroTitle: string
   heroSubtitle: string
-  bgImage: string
+  bgImage?: string | null
   eyebrow: string
+  heroEyebrow?: string
+  productLogo?: string
+  productLogoAlt?: string
+  theme?: 'default' | 'pameru'
   gridTitle: string
   gridBody: string
   features: Feature[]
@@ -86,42 +90,67 @@ const PILLAR_CONFIG: Record<SolutionSlug, PillarConfig> = {
     secondaryCta: { label: 'Request a demo', href: 'mailto:info@aitrixlabs.com?subject=EdTech demo' },
   },
   communication: {
-    heroTitle: 'AI communication for every stakeholder',
+    heroTitle: "Best Omnichannel Platform for Colleges, Universities & Institutes",
     heroSubtitle:
-      'AI Livechat and notification systems that connect students, parents, and staff in Nepali and English — fast, consistent, and institution-aligned.',
-    bgImage: servicesBanner,
-    eyebrow: 'By solution',
-    gridTitle: 'Stay in sync without the noise',
+      'Built by Aitrix Labs, Pameru is the omnichannel customer conversation platform designed for colleges, universities, and educational institutes. Prospective students reach out on WhatsApp, Instagram, email, web chat, and phone — often switching channels mid-conversation. Pameru unifies every touchpoint in a single AI-powered team inbox so your admissions, registrar, and student services teams never lose context.',
+    bgImage: null,
+    productLogo: pameruLogo,
+    productLogoAlt: 'Pameru',
+    heroEyebrow: 'Built by Aitrix Labs',
+    theme: 'pameru',
+    eyebrow: 'Pameru',
+    gridTitle: 'Key features for colleges and universities',
     gridBody:
-      'Give families clarity, reduce repetitive queries for staff, and keep messaging in one trusted layer.',
+      'From first inquiry to enrollment, Pameru helps institutions capture leads, convert applicants, and retain students across every channel. AI Agents handle routine questions about programs, tuition, deadlines, and campus visits around the clock, while your staff focus on high-value conversations with qualified candidates.',
     features: [
       {
         Icon: SwapIcon,
-        title: 'Bilingual AI Livechat',
+        title: 'Unified admissions inbox',
         description:
-          'Instant answers and handoff to humans when it matters — tuned for education vocabulary in Nepali and English.',
-        accent: '#60EBD1',
+          'WhatsApp, Messenger, Instagram, email, and VoIP in one thread — no matter where the conversation starts.',
+        accent: '#8B5CF6',
+      },
+      {
+        Icon: StarSparkIcon,
+        title: 'AI-powered lead qualification',
+        description:
+          'Automatically answer FAQs and route serious applicants to counselors when human expertise matters most.',
+        accent: '#A78BFA',
+      },
+      {
+        Icon: NetworkIcon,
+        title: 'Multi-campus routing',
+        description:
+          'Smart assignment for departments, campuses, and language preferences across your institution.',
+        accent: '#06B6D4',
       },
       {
         Icon: MailBoxIcon,
-        title: 'Parent & community updates',
+        title: 'Enrollment broadcasts',
         description:
-          'Transparent channels for schedules, fees, and school news so trust stays high and confusion stays low.',
-        accent: '#2DD4BF',
+          'Deadline reminders, orientation invites, and fee notifications at scale during peak admission seasons.',
+        accent: '#22D3EE',
       },
       {
-        Icon: ListIcon,
-        title: 'Unified notifications',
+        Icon: GraphIcon,
+        title: 'CRM integration',
         description:
-          'SMS, email, and in-app messaging orchestrated so the right people get the right nudge at the right time.',
-        accent: '#5EEAD4',
+          'Full student context synced with your existing systems so every team member sees the full picture.',
+        accent: '#7C3AED',
+      },
+      {
+        Icon: ShieldIcon,
+        title: '99.999% uptime SLA',
+        description:
+          'Enterprise reliability built for peak admission seasons when every conversation counts.',
+        accent: '#0891B2',
       },
     ],
-    ctaTitle: 'Roll out smarter conversations',
+    ctaTitle: 'Start your free trial on Pameru',
     ctaBody:
-      'We help you design routing, policies, and integrations so AI chat and notifications match how your institution already works.',
-    primaryCta: { label: 'Talk to us', href: 'mailto:info@aitrixlabs.com?subject=Communication solutions' },
-    secondaryCta: { label: 'View product suite', to: '/products' },
+      'Join thousands of brands that trust Pameru for AI-powered customer conversations. Roll out omnichannel admissions and student services with the platform built by Aitrix Labs.',
+    primaryCta: { label: 'Start free trial', href: 'https://app.pameru.com' },
+    secondaryCta: { label: 'Visit pameru.com', href: 'https://pameru.com' },
   },
   telephony: {
     heroTitle: 'Voice AI & telephony for campuses',
@@ -201,24 +230,77 @@ const PILLAR_CONFIG: Record<SolutionSlug, PillarConfig> = {
   },
 }
 
-function ExploreStrip() {
+function PameruProductStrip() {
   return (
-    <Section className="border-t border-ink-900 bg-ink-950">
+    <Section className="border-t border-ink-200 bg-white">
       <Reveal>
-        <Eyebrow className="text-ink-400">Explore</Eyebrow>
-        <SectionHeading as="h2" className="!mb-8 max-w-[520px]">
+        <div className="overflow-hidden rounded-2xl border border-ink-200 bg-ink-50 p-8 sm:p-10">
+          <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-[640px]">
+              <img src={pameruLogo} alt="Pameru" className="mb-5 h-12 w-auto sm:h-14" />
+              <h2 className="mb-3 text-2xl font-bold tracking-[-0.5px] text-ink-900 sm:text-[28px]">
+                Omnichannel communication built for education
+              </h2>
+              <p className="text-[15px] leading-[1.7] text-ink-600">
+                Pameru is Aitrix Labs&apos; dedicated product for colleges and universities — unifying
+                WhatsApp, social, email, web chat, and voice in one AI-powered inbox built for admissions
+                and student services teams.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <a
+                href="https://app.pameru.com"
+                className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-[#8B5CF6] to-[#06B6D4] px-6 py-3 text-[15px] font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Start free trial
+                <ArrowRightIcon className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href="https://pameru.com"
+                className="inline-flex items-center gap-2 rounded-md border border-ink-300 bg-white px-6 py-3 text-[15px] font-semibold text-ink-800 transition-colors hover:border-ink-400 hover:bg-ink-50"
+              >
+                pameru.com
+                <ArrowRightIcon className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </Section>
+  )
+}
+
+function ExploreStrip({ light = false }: { light?: boolean }) {
+  const sectionClass = light
+    ? 'border-t border-ink-200 bg-ink-50'
+    : 'border-t border-ink-900 bg-ink-950'
+  const cardClass = light
+    ? 'group flex flex-col rounded-2xl border border-ink-200 bg-white p-6 transition-colors hover:border-ink-300 hover:shadow-sm'
+    : 'group flex flex-col rounded-2xl border border-ink-900 bg-black p-6 transition-colors hover:border-ink-800'
+  const iconWrapClass = light
+    ? 'mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-ink-200 bg-ink-50 text-primary'
+    : 'mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-ink-800 bg-ink-950 text-primary'
+  const titleClass = light ? 'mb-1 text-lg font-bold text-ink-900' : 'mb-1 text-lg font-bold text-white'
+  const bodyClass = light
+    ? 'mb-4 flex-1 text-sm leading-relaxed text-ink-600'
+    : 'mb-4 flex-1 text-sm leading-relaxed text-ink-400'
+  const eyebrowClass = light ? 'text-ink-500' : 'text-ink-400'
+  const headingClass = light ? '!mb-8 max-w-[520px] !text-ink-900' : '!mb-8 max-w-[520px]'
+
+  return (
+    <Section className={sectionClass}>
+      <Reveal>
+        <Eyebrow className={eyebrowClass}>Explore</Eyebrow>
+        <SectionHeading as="h2" className={headingClass}>
           Products & platform
         </SectionHeading>
         <div className="grid gap-4 sm:grid-cols-2">
-          <Link
-            to="/products"
-            className="group flex flex-col rounded-2xl border border-ink-900 bg-black p-6 transition-colors hover:border-ink-800"
-          >
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-ink-800 bg-ink-950 text-primary">
+          <Link to="/products" className={cardClass}>
+            <div className={iconWrapClass}>
               <GridIcon className="h-5 w-5" />
             </div>
-            <div className="mb-1 text-lg font-bold text-white">Products</div>
-            <p className="mb-4 flex-1 text-sm leading-relaxed text-ink-400">
+            <div className={titleClass}>Products</div>
+            <p className={bodyClass}>
               Browse the full Aitrix product suite — LMS, CMS, chat, telephony, and more.
             </p>
             <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:text-primary-hover">
@@ -226,15 +308,12 @@ function ExploreStrip() {
               <ArrowRightIcon className="h-3.5 w-3.5" />
             </span>
           </Link>
-          <Link
-            to="/platform"
-            className="group flex flex-col rounded-2xl border border-ink-900 bg-black p-6 transition-colors hover:border-ink-800"
-          >
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-ink-800 bg-ink-950 text-primary">
+          <Link to="/platform" className={cardClass}>
+            <div className={iconWrapClass}>
               <StackIcon className="h-5 w-5" />
             </div>
-            <div className="mb-1 text-lg font-bold text-white">Platform</div>
-            <p className="mb-4 flex-1 text-sm leading-relaxed text-ink-400">
+            <div className={titleClass}>Platform</div>
+            <p className={bodyClass}>
               APIs, security, deployment, and how our stack fits your IT roadmap.
             </p>
             <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:text-primary-hover">
@@ -264,16 +343,33 @@ export function SolutionDetailPage() {
         primaryCta={c.primaryCta}
         secondaryCta={c.secondaryCta}
         bgImage={c.bgImage}
+        productLogo={c.productLogo}
+        productLogoAlt={c.productLogoAlt}
+        eyebrow={c.heroEyebrow ?? c.eyebrow}
+        theme={c.theme}
       />
       <FeatureGrid
         eyebrow={c.eyebrow}
         title={c.gridTitle}
         body={c.gridBody}
         features={c.features}
-        columns={3}
+        columns={c.features.length > 3 ? 3 : 3}
+        variant={slug === 'communication' ? 'light' : 'dark'}
       />
-      <ExploreStrip />
-      <CTABar title={c.ctaTitle} body={c.ctaBody} />
+      {slug === 'communication' && <PameruProductStrip />}
+      <ExploreStrip light={slug === 'communication'} />
+      <CTABar
+        title={c.ctaTitle}
+        body={c.ctaBody}
+        primaryCta={c.primaryCta}
+        secondaryCta={c.secondaryCta}
+        variant={slug === 'communication' ? 'light' : 'dark'}
+        primaryClassName={
+          slug === 'communication'
+            ? '!bg-gradient-to-r !from-[#8B5CF6] !to-[#06B6D4] !border-0 hover:!from-[#7C3AED] hover:!to-[#0891B2]'
+            : ''
+        }
+      />
       <Newsletter />
     </>
   )

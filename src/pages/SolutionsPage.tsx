@@ -20,7 +20,7 @@ import { Reveal } from '../components/ui/Reveal'
 
 const PILLAR_LINKS = [
   { to: '/solutions/edtech', label: 'EdTech', hint: 'LMS, CMS, analytics', Icon: BookIcon },
-  { to: '/solutions/communication', label: 'Communication', hint: 'Livechat & notifications', Icon: SwapIcon },
+  { to: '/solutions/communication', label: 'Pameru', hint: 'Omnichannel admissions inbox', Icon: SwapIcon },
   { to: '/solutions/telephony', label: 'Telephony', hint: 'PBX, IVR, call analytics', Icon: PhoneIcon },
   { to: '/solutions/ai-research', label: 'AI research tools', hint: 'NLP & responsible AI', Icon: StarIcon },
 ] as const

@@ -46,9 +46,9 @@ export const SOLUTIONS_ITEMS: MegaItem[] = [
   },
   {
     Icon: SwapIcon,
-    title: 'Communication',
+    title: 'Pameru',
     description:
-      'AI Livechat and notification systems that connect students, parents, and staff in Nepali and English.',
+      'Omnichannel admissions inbox by Aitrix Labs — WhatsApp, Instagram, email, web chat, and phone unified in one AI-powered team inbox.',
     to: '/solutions/communication',
   },
   {

@@ -46,12 +46,12 @@ export const PILLARS = [
     to: '/products',
   },
   {
-    label: 'Pillar 2 — AI Communication',
+    label: 'Pillar 2 — Pameru',
     title: 'Smarter conversations, everywhere',
     description:
-      'Our AI Livechat and communication suite handles student queries, parent communications, and staff coordination in both Nepali and English — 24/7, without losing the human touch. Intelligent routing, instant answers, and full institutional alignment.',
-    cta: 'Explore Communication',
-    to: '/products',
+      'Pameru by Aitrix Labs unifies WhatsApp, Instagram, email, web chat, and phone in one AI-powered team inbox — so admissions and student services teams never lose context across channels.',
+    cta: 'Explore Pameru',
+    to: '/solutions/communication',
   },
   {
     label: 'Pillar 3 — AI Telephony',
@@ -121,22 +121,22 @@ export const PRODUCT_SUITE: ProductSuiteColumn[] = [
   },
   {
     id: 'communication',
-    title: 'Communication',
-    color: '#60EBD1',
+    title: 'Pameru',
+    color: '#8B5CF6',
     items: [
       {
-        name: 'AI Livechat',
-        desc: 'Bilingual (Nepali + English) support for students, parents, staff',
+        name: 'Unified admissions inbox',
+        desc: 'WhatsApp, Messenger, Instagram, email, and VoIP in one thread',
         icon: 'livechat',
       },
       {
-        name: 'Parent Portal',
-        desc: 'Real-time updates, transparent school communications',
+        name: 'AI lead qualification',
+        desc: 'Answer FAQs and route serious applicants to counselors automatically',
         icon: 'portal',
       },
       {
-        name: 'Notification Engine',
-        desc: 'SMS, email, and in-app messaging unified',
+        name: 'Enrollment broadcasts',
+        desc: 'Deadline reminders, orientation invites, and fee notifications at scale',
         icon: 'notify',
       },
     ],
